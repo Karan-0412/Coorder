@@ -9,12 +9,11 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     colors,
-    extend: {
-      spacing,
-      fontSize,
-      borderRadius,
-      fontFamily,
-    },
+    spacing,
+    fontSize,
+    borderRadius,
+    fontFamily,
+    extend: {},
   },
   plugins: [],
 };
