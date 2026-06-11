@@ -56,13 +56,13 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-on-surface">
+    <div className="bg-background text-on-surface">
       <Header />
 
       <main className="max-w-[1200px] mx-auto flex gap-6 px-margin-mobile md:px-margin-desktop py-6 mb-20">
         <Sidebar />
 
-        <section className="flex-1 w-full flex flex-col gap-4">
+        <section className="flex-1 flex flex-col gap-4">
           {/* Category Filter (Mobile/Tablet) */}
           <CategoryFilter
             categories={categories}
