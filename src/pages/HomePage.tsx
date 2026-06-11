@@ -62,7 +62,7 @@ export default function HomePage() {
       <main className="max-w-[1200px] mx-auto flex gap-6 px-margin-mobile md:px-margin-desktop py-6 mb-20">
         <Sidebar />
 
-        <section className="flex-1 max-w-max-width-content mx-auto w-full flex flex-col gap-4">
+        <section className="flex-1 w-full flex flex-col gap-4">
           {/* Category Filter (Mobile/Tablet) */}
           <CategoryFilter
             categories={categories}
