@@ -85,8 +85,10 @@
 
 body {
   font-family: 'IBM Plex Sans', sans-serif;
-  background-color: var(--color-background, #f8f9fa);
-  color: var(--color-on-background, #191c1d);
+}
+
+#root {
+  min-height: 100vh;
 }
 
 html {
