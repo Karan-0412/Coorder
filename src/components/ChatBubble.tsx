@@ -24,11 +24,11 @@ export default function ChatBubble({
             <span className="text-[11px] font-bold text-on-surface-variant">
               {senderName || 'Peer'}
             </span>
-            {timestamp && <span className="text-[10px] text-outline">• {timestamp}</span>}
+            {timestamp && <span className="text-[10px] text-outline">| {timestamp}</span>}
           </>
         ) : (
           <>
-            {timestamp && <span className="text-[10px] text-outline">{timestamp} •</span>}
+            {timestamp && <span className="text-[10px] text-outline">{timestamp} |</span>}
             <span className="text-[11px] font-bold text-primary">You</span>
           </>
         )}

@@ -1,53 +1,17 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, ChatBubble } from '../components';
-
-interface Message {
-  id: number;
-  sender: 'user' | 'peer';
-  message: string;
-  timestamp: string;
-  senderName?: string;
-  avatar?: string;
-}
+import { imageUrls, initialChatMessages } from '../data/mockData';
+import type { ChatMessage } from '../types';
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: 1,
-      sender: 'peer',
-      message: "Hey! Are you interested in joining the group buy?",
-      timestamp: '10:30 AM',
-      senderName: 'Alex Rivera',
-      avatar: 'https://via.placeholder.com/32',
-    },
-    {
-      id: 2,
-      sender: 'user',
-      message: "Yeah, I'm interested! How many spots are left?",
-      timestamp: '10:32 AM',
-    },
-    {
-      id: 3,
-      sender: 'peer',
-      message: 'We have 3 spots left out of 10. Escrow is protected via Coorder.',
-      timestamp: '10:33 AM',
-      senderName: 'Alex Rivera',
-      avatar: 'https://via.placeholder.com/32',
-    },
-    {
-      id: 4,
-      sender: 'user',
-      message: "Perfect! Count me in. What's the final price?",
-      timestamp: '10:34 AM',
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>(initialChatMessages);
   const [inputValue, setInputValue] = useState('');
 
   const handleSend = () => {
     if (!inputValue.trim()) return;
 
-    const newMessage: Message = {
+    const newMessage: ChatMessage = {
       id: messages.length + 1,
       sender: 'user',
       message: inputValue,
@@ -72,7 +36,7 @@ export default function ChatPage() {
               <div className="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-outline/10">
                 <img
                   alt="User Profile"
-                  src="https://via.placeholder.com/32"
+                  src={imageUrls.userAvatar}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -104,7 +68,7 @@ export default function ChatPage() {
             />
             <div className="flex-1">
               <h4 className="font-label-bold text-label-bold line-clamp-1">Ultimate Smart Home Bundle</h4>
-              <p className="text-[12px] text-on-surface-variant line-clamp-1">3 Spots Left • $59.00 / ea</p>
+              <p className="text-[12px] text-on-surface-variant line-clamp-1">3 Spots Left | $59.00 / ea</p>
             </div>
             <button className="text-primary font-label-bold text-[12px] bg-primary/10 px-3 py-1.5 rounded-lg">View</button>
           </div>
@@ -141,7 +105,7 @@ export default function ChatPage() {
               placeholder="Message group..." 
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={(e) => {
+              onKeyDown={(e) => {
                 if (e.key === 'Enter') handleSend();
               }}
               className="flex-1 bg-transparent text-body-md text-on-surface placeholder:text-on-surface-variant outline-none" 

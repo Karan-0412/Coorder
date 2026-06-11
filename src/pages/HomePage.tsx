@@ -1,59 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Sidebar, FeaturedDealCard, GroupBuyCard, CategoryFilter } from '../components';
-import type { Category } from '../components/CategoryFilter';
+import { categories, featuredDeal, groupBuyDeals } from '../data/mockData';
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState('group-buys');
-
-  const categories: Category[] = [
-    { id: 'group-buys', name: 'Group Buys' },
-    { id: 'flash-sales', name: 'Flash Sales' },
-    { id: 'coupons', name: 'Coupons' },
-    { id: 'bundles', name: 'Bundles' },
-  ];
-
-  const sampleDeals = [
-    {
-      id: 1,
-      title: 'Ultimate Smart Home Bundle: 4x Smart Plugs + Hub',
-      description:
-        'Looking for 5 more members to unlock the bulk discount. Currently at 45% off MSRP! All orders handled via Coorder Escrow for guaranteed safety.',
-      imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBvBysmIp848sGcF4LaKhQeMOdpE9lpNOkd6exqrQv6zi3s_YhEabCvOfHY7oRJBLWPpsnP74ndQtfFLKJakOL-RrGrqEhvwOMj39Q7PsyKyTuZHg3CMMiCuAHlTCDOz7qsOlmc6wCfVL_t0yXWqwr5rn3_P-7l4h0RxC5raKbEMDWPsDQdbowPO_SAQK-Xtgc3RyYIOkawSUA-G7C7CK44HfhsD4TMTXYOV83zcqx5kxEIzrMNfg1idwz0dl12-t-NUEZz8N_iw2c',
-      communityIcon: 'T',
-      communityName: 'r/TechGroup',
-      username: 'u/DealFinder',
-      timePosted: '2h ago',
-      isEscrowProtected: true,
-      groupStatus: 'active' as const,
-      currentPrice: '$59.00',
-      originalPrice: '$120.00',
-      spotsProgress: 70,
-      totalSpots: 10,
-      joinPrice: '59',
-      likes: 1200,
-      comments: 84,
-    },
-    {
-      id: 2,
-      title: 'Comandante C40 MK4 Grinder - Limited Liquid Amber',
-      description: 'Secured a wholesale lot of 12 grinders. 9 already spoken for. Escrow protection enabled.',
-      imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDWqkOhN08yuztUOOL1wPxInkPIYAnUDhI0PYFKv7NtwocUT8zXr5WFUyR8kM8MF1OuAdwbW9-Op3lOUCypgCppN4ZPfnN-H0a2OwFyRqLepllW2e6GieZxy_4gi2l7ExZmJRhAKxIQzWzc_X1gE7EBpv3c1_d7EaPUHLcZidz5UJ2bBpdwjJ-OE8s9Vu94Cbt4LjKPglbpyHpII528OhRcFIWVS8y5vO25Hwm20uw5RLP6vCWDCPtODdfHuG38HeCbTJwkDeOKEsU',
-      communityIcon: 'C',
-      communityName: 'r/CoffeeNerd',
-      username: 'u/BaristaLife',
-      timePosted: '5h ago',
-      isEscrowProtected: true,
-      groupStatus: 'active' as const,
-      currentPrice: '$240.00',
-      originalPrice: '$320.00',
-      spotsProgress: 75,
-      totalSpots: 12,
-      joinPrice: '240',
-      likes: 452,
-      comments: 12,
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background text-on-surface">
@@ -75,13 +26,7 @@ export default function HomePage() {
             <div className="md:col-span-2">
               <Link to="/group/1">
                 <FeaturedDealCard
-                  title="ErgoPro X9 Mechanical Keyboard"
-                  imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYsEI_hskevDIZ3GNTB5wnekX4JmnMq2W_x2Aqzfp1z_xBRwL_ZxOdkBWqbpC9uYj0AWaRmDrNYlSvVpgxi78ddgCQ2pIpx7mAiTrnkDIMVSBGGX6FCLmJIoXFYFdJWHb7ex0enp_b07gLT5jeAYu7E_SalcZGrwO_xrLXCeqLD31HfeCVCNyGHnk7Vq2xbLMGwAstH6_QFcbkVMeLtDT0uL4ke0b1Ih0g8zIqABJdwuHKfDwoPKRzbZXQsKFJFQP_BV1PFm69G0"
-                  status="active"
-                  spotsLeft={3}
-                  currentPrice="$149.00"
-                  originalPrice="$229.00"
-                  badge="Group Active"
+                  {...featuredDeal}
                   onJoin={() => {}}
                 />
               </Link>
@@ -90,25 +35,10 @@ export default function HomePage() {
 
           {/* Feed Posts */}
           <div className="space-y-4">
-            {sampleDeals.map((deal) => (
+            {groupBuyDeals.map((deal) => (
               <GroupBuyCard
                 key={deal.id}
-                title={deal.title}
-                description={deal.description}
-                imageUrl={deal.imageUrl}
-                communityIcon={deal.communityIcon}
-                communityName={deal.communityName}
-                username={deal.username}
-                timePosted={deal.timePosted}
-                isEscrowProtected={deal.isEscrowProtected}
-                groupStatus={deal.groupStatus}
-                currentPrice={deal.currentPrice}
-                originalPrice={deal.originalPrice}
-                spotsProgress={deal.spotsProgress}
-                totalSpots={deal.totalSpots}
-                joinPrice={deal.joinPrice}
-                likes={deal.likes}
-                comments={deal.comments}
+                {...deal}
                 onJoin={() => {}}
               />
             ))}

@@ -1,39 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-interface LocalDeal {
-  id: number;
-  title: string;
-  location: string;
-  members: number;
-  distance: string;
-  image: string;
-  price: string;
-}
+import { imageUrls, localDeals } from '../data/mockData';
 
 export default function MapPage() {
   const [isSheetOpen, setIsSheetOpen] = useState(true);
-
-  const localDeals: LocalDeal[] = [
-    {
-      id: 1,
-      title: 'Coffee Grinder Group Buy',
-      location: 'Downtown Coffee Shop',
-      members: 8,
-      distance: '0.3 mi',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDWqkOhN08yuztUOOL1wPxInkPIYAnUDhI0PYFKv7NtwocUT8zXr5WFUyR8kM8MF1OuAdwbW9-Op3lOUCypgCppN4ZPfnN-H0a2OwFyRqLepllW2e6GieZxy_4gi2l7ExZmJRhAKxIQzWzc_X1gE7EBpv3c1_d7EaPUHLcZidz5UJ2bBpdwjJ-OE8s9Vu94Cbt4LjKPglbpyHpII528OhRcFIWVS8y5vO25Hwm20uw5RLP6vCWDCPtODdfHuG38HeCbTJwkDeOKEsU',
-      price: '$240',
-    },
-    {
-      id: 2,
-      title: 'Smart Home Devices',
-      location: 'Tech Hub Downtown',
-      members: 5,
-      distance: '1.2 mi',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBvBysmIp848sGcF4LaKhQeMOdpE9lpNOkd6exqrQv6zi3s_YhEabCvOfHY7oRJBLWPpsnP74ndQtfFLKJakOL-RrGrqEhvwOMj39Q7PsyKyTuZHg3CMMiCuAHlTCDOz7qsOlmc6wCfVL_t0yXWqwr5rn3_P-7l4h0RxC5raKbEMDWPsDQdbowPO_SAQK-Xtgc3RyYIOkawSUA-G7C7CK44HfhsD4TMTXYOV83zcqx5kxEIzrMNfg1idwz0dl12-t-NUEZz8N_iw2c',
-      price: '$59',
-    },
-  ];
 
   return (
     <div className="relative min-h-screen bg-background overflow-hidden text-on-surface">
@@ -43,25 +13,32 @@ export default function MapPage() {
         <img 
           alt="Map Background" 
           className="w-full h-full object-cover opacity-80" 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEV5-D4jT-3-r5bF9A_FzWj9R9H-P1Zc5oK8Iq9y3VqQJ_3I_R4hB9Y2lK-A2K8b-8gH6Z8Wc2I5H2K7R9y7F3J4M0L5v8o_x_C3E5T0N8S5A1J7g6Q4c8N8P0Q5Q3P0Q5A9J4G8L0E8Q0E0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0" 
+          src={imageUrls.mapBackground}
         />
         
         {/* Map Markers */}
-        <div className="absolute top-[30%] left-[40%] group cursor-pointer z-10 transform -translate-x-1/2 -translate-y-full hover:z-20">
-          <div className="bg-primary text-white font-bold text-[12px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1 marker-pulse group-hover:scale-110 transition-transform">
-            <span className="material-symbols-outlined text-[14px]">local_cafe</span>
-            $240
+        {localDeals.map((deal, index) => (
+          <div
+            key={deal.id}
+            className={`absolute ${deal.markerClassName} group cursor-pointer z-10 transform -translate-x-1/2 -translate-y-full hover:z-20`}
+          >
+            <div
+              className={`font-bold text-[12px] px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1 group-hover:scale-110 transition-all ${
+                index === 0
+                  ? 'bg-primary text-white marker-pulse'
+                  : 'bg-surface text-on-surface border border-outline-variant/30 group-hover:bg-primary group-hover:text-white group-hover:border-primary'
+              }`}
+            >
+              <span className="material-symbols-outlined text-[14px]">{deal.markerIcon}</span>
+              {deal.price}
+            </div>
+            <div
+              className={`w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] mx-auto transition-colors ${
+                index === 0 ? 'border-t-primary' : 'border-t-surface group-hover:border-t-primary'
+              }`}
+            />
           </div>
-          <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-primary mx-auto"></div>
-        </div>
-
-        <div className="absolute top-[50%] left-[60%] group cursor-pointer z-10 transform -translate-x-1/2 -translate-y-full hover:z-20">
-          <div className="bg-surface text-on-surface font-bold text-[12px] px-3 py-1.5 rounded-full shadow-lg border border-outline-variant/30 flex items-center gap-1 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all group-hover:border-primary">
-            <span className="material-symbols-outlined text-[14px]">router</span>
-            $59
-          </div>
-          <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-surface group-hover:border-t-primary mx-auto transition-colors"></div>
-        </div>
+        ))}
         
         {/* User Location Marker */}
         <div className="absolute top-[45%] left-[48%] transform -translate-x-1/2 -translate-y-1/2">
@@ -117,7 +94,7 @@ export default function MapPage() {
                   <h3 className="font-label-bold text-label-bold line-clamp-1 mb-1">{deal.title}</h3>
                   <p className="text-[11px] text-on-surface-variant flex items-center gap-1">
                     <span className="material-symbols-outlined text-[14px]">location_on</span>
-                    {deal.distance} • {deal.location}
+                    {deal.distance} | {deal.location}
                   </p>
                 </div>
                 <div className="flex justify-between items-end">

@@ -8,8 +8,8 @@ const config: Config = {
   ],
   darkMode: 'class',
   theme: {
-    colors,
     extend: {
+      colors,
       spacing,
       fontSize,
       borderRadius,

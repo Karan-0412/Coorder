@@ -1,10 +1,5 @@
 import { useState } from 'react';
-
-export interface Category {
-  id: string;
-  name: string;
-  icon?: string;
-}
+import type { Category } from '../types';
 
 interface CategoryFilterProps {
   categories: Category[];

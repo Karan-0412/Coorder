@@ -1,41 +1,8 @@
 import { Header } from '../components';
 import { Link } from 'react-router-dom';
-
-interface GroupMember {
-  id: number;
-  name: string;
-  avatar: string;
-  joinedAt: string;
-  status: 'confirmed' | 'pending';
-  role?: string;
-}
+import { groupMembers, imageUrls } from '../data/mockData';
 
 export default function GroupDetailsPage() {
-  const members: GroupMember[] = [
-    {
-      id: 1,
-      name: 'Alex Rivera',
-      avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDbFrafJmmVIAGXC--XwoVR1t7swTRgRDY5mR6nWC-CnrXUGhO1_4NORfJfnMfwHlJ3JhVqi8I_zp9Q5SBg-v1MQT7-4ghn7w-OEt2TDRbS_KxwEw5FDZGYVlSNZaaz9C8MgZpc1jADcjYrGdZyzExv1qW2Y96k6kYedSy_uHxGgz-Tfh4wWaqAcDXefPOsl047nPMvyMeQcT9EN7T59O_qxyw3MD5G7vWZF1NeO0WKe40BtZyeXFwY2IKhnpVvF6YPcSa5liVANN0',
-      joinedAt: 'Mar 15',
-      status: 'confirmed',
-      role: 'Group Leader'
-    },
-    {
-      id: 2,
-      name: 'Sarah Chen',
-      avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAEV5-D4jT-3-r5bF9A_FzWj9R9H-P1Zc5oK8Iq9y3VqQJ_3I_R4hB9Y2lK-A2K8b-8gH6Z8Wc2I5H2K7R9y7F3J4M0L5v8o_x_C3E5T0N8S5A1J7g6Q4c8N8P0Q5Q3P0Q5A9J4G8L0E8Q0E0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0',
-      joinedAt: 'Mar 14',
-      status: 'confirmed',
-    },
-    {
-      id: 3,
-      name: 'Jordan Lee',
-      avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAEV5-D4jT-3-r5bF9A_FzWj9R9H-P1Zc5oK8Iq9y3VqQJ_3I_R4hB9Y2lK-A2K8b-8gH6Z8Wc2I5H2K7R9y7F3J4M0L5v8o_x_C3E5T0N8S5A1J7g6Q4c8N8P0Q5Q3P0Q5A9J4G8L0E8Q0E0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0',
-      joinedAt: 'Mar 13',
-      status: 'pending',
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background text-on-surface">
       <Header />
@@ -54,7 +21,7 @@ export default function GroupDetailsPage() {
             <h1 className="font-headline-lg text-headline-lg mb-2">ErgoPro X9 Mechanical Keyboard</h1>
             <div className="flex items-center gap-2 text-on-surface-variant text-sm">
               <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase">Active</span>
-              <span>•</span>
+              <span>|</span>
               <span className="flex items-center gap-1"><span className="material-symbols-outlined text-[16px]">verified_user</span> Escrow Protected</span>
             </div>
           </div>
@@ -64,7 +31,7 @@ export default function GroupDetailsPage() {
             <img 
               alt="ErgoPro X9" 
               className="w-full h-full object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYsEI_hskevDIZ3GNTB5wnekX4JmnMq2W_x2Aqzfp1z_xBRwL_ZxOdkBWqbpC9uYj0AWaRmDrNYlSvVpgxi78ddgCQ2pIpx7mAiTrnkDIMVSBGGX6FCLmJIoXFYFdJWHb7ex0enp_b07gLT5jeAYu7E_SalcZGrwO_xrLXCeqLD31HfeCVCNyGHnk7Vq2xbLMGwAstH6_QFcbkVMeLtDT0uL4ke0b1Ih0g8zIqABJdwuHKfDwoPKRzbZXQsKFJFQP_BV1PFm69G0" 
+              src={imageUrls.keyboard}
             />
           </div>
 
@@ -118,7 +85,7 @@ export default function GroupDetailsPage() {
             </div>
             
             <div className="space-y-3">
-              {members.map(member => (
+              {groupMembers.map(member => (
                 <div key={member.id} className="flex items-center justify-between p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/20 transition-colors">
                   <div className="flex items-center gap-3">
                     <img alt={member.name} className="w-10 h-10 rounded-full object-cover border border-outline-variant/30" src={member.avatar} />

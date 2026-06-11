@@ -1,49 +1,7 @@
 import { Header } from '../components';
-
-interface ProfileStats {
-  label: string;
-  value: number | string;
-  icon?: string;
-}
+import { imageUrls, profileStats, recentPurchases } from '../data/mockData';
 
 export default function ProfilePage() {
-  const stats: ProfileStats[] = [
-    { label: 'Active', value: 3, icon: 'bolt' },
-    { label: 'Completed', value: 12, icon: 'check_circle' },
-    { label: 'Saved', value: '$1.2k', icon: 'savings' },
-    { label: 'Level', value: 4, icon: 'stars' },
-  ];
-
-  const recentPurchases = [
-    {
-      id: 1,
-      title: 'ErgoPro X9 Keyboard',
-      price: '$149.00',
-      date: 'Mar 15, 2024',
-      status: 'Escrow Locked',
-      statusColor: 'text-tertiary',
-      bgStatusColor: 'bg-tertiary/10',
-    },
-    {
-      id: 2,
-      title: 'Smart Home Bundle',
-      price: '$59.00',
-      date: 'Mar 12, 2024',
-      status: 'In Transit',
-      statusColor: 'text-secondary',
-      bgStatusColor: 'bg-secondary/10',
-    },
-    {
-      id: 3,
-      title: 'Coffee Grinder',
-      price: '$89.99',
-      date: 'Mar 8, 2024',
-      status: 'Delivered',
-      statusColor: 'text-primary',
-      bgStatusColor: 'bg-primary/10',
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background text-on-surface">
       <Header />
@@ -61,15 +19,16 @@ export default function ProfilePage() {
                 <img 
                   alt="Sarah Chen" 
                   className="w-full h-full rounded-full object-cover" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEV5-D4jT-3-r5bF9A_FzWj9R9H-P1Zc5oK8Iq9y3VqQJ_3I_R4hB9Y2lK-A2K8b-8gH6Z8Wc2I5H2K7R9y7F3J4M0L5v8o_x_C3E5T0N8S5A1J7g6Q4c8N8P0Q5Q3P0Q5A9J4G8L0E8Q0E0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0C0B0A0" 
+                  src={imageUrls.profileAvatar}
                 />
               </div>
               <h1 className="font-headline-md text-headline-md mb-1">Sarah Chen</h1>
-              <p className="text-[12px] text-on-surface-variant mb-4">@sarahc • Joined Jan 2024</p>
+              <p className="text-[12px] text-on-surface-variant mb-4">@sarahc | Joined Jan 2024</p>
               
               <div className="flex justify-center gap-2 mb-6">
                 <span className="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[14px]">verified</span> Pro Buyer
+                <span className="material-symbols-outlined text-[14px]">verified</span>
+                Pro Buyer
                 </span>
               </div>
 
@@ -115,8 +74,8 @@ export default function ProfilePage() {
           
           {/* Quick Stats Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30 text-center shadow-sm hover:-translate-y-1 transition-transform">
+            {profileStats.map((stat) => (
+              <div key={stat.label} className="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30 text-center shadow-sm hover:-translate-y-1 transition-transform">
                 <span className="material-symbols-outlined text-primary mb-2 opacity-80">{stat.icon}</span>
                 <p className="font-headline-md text-headline-md">{stat.value}</p>
                 <p className="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">{stat.label}</p>

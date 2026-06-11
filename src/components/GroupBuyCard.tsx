@@ -49,7 +49,7 @@ export default function GroupBuyCard({
             <div className="flex flex-col">
               <span className="font-label-bold text-label-bold">{communityName}</span>
               <span className="text-[10px] text-on-surface-variant">
-                Posted by {username} • {timePosted}
+                Posted by {username} | {timePosted}
               </span>
             </div>
           </div>
