@@ -92,8 +92,8 @@ export const fontSize = {
 };
 
 export const borderRadius = {
-  sm: '0.25rem',
-  DEFAULT: '0.5rem',
+  xs: '0.25rem',
+  sm: '0.5rem',
   md: '0.75rem',
   lg: '1rem',
   xl: '1.5rem',

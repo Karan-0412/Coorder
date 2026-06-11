@@ -54,7 +54,7 @@ export default function ProfilePage() {
         <div className="md:col-span-1 space-y-6">
           
           {/* Profile Card */}
-          <div className="glass-card rounded-2xl p-6 text-center shadow-sm relative overflow-hidden">
+          <div className="glass-card rounded-xl p-6 text-center shadow-sm relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-primary/10 to-transparent"></div>
             <div className="relative z-10">
               <div className="w-24 h-24 mx-auto rounded-full p-1 bg-white shadow-sm mb-4">
@@ -80,7 +80,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Settings Menu */}
-          <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm overflow-hidden">
+          <div className="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden">
             <button className="w-full flex items-center justify-between p-4 hover:bg-surface-container-high transition-colors text-left border-b border-outline-variant/10">
               <div className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-on-surface-variant">notifications</span>
@@ -104,7 +104,7 @@ export default function ProfilePage() {
             </button>
           </div>
           
-          <button className="w-full flex items-center justify-center gap-2 p-4 text-error hover:bg-error/10 transition-colors rounded-2xl font-label-bold">
+          <button className="w-full flex items-center justify-center gap-2 p-4 text-error hover:bg-error/10 transition-colors rounded-xl font-label-bold">
             <span className="material-symbols-outlined">logout</span>
             Sign Out
           </button>
@@ -125,7 +125,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Wallet / Escrow Card */}
-          <div className="bg-gradient-to-br from-primary to-[#FF6B3D] rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+          <div className="bg-gradient-to-br from-primary to-[#FF6B3D] rounded-xl p-6 text-white shadow-lg relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
             <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
@@ -144,7 +144,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Recent Activity */}
-          <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm p-6">
+          <div className="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm p-6">
             <div className="flex justify-between items-center mb-6">
               <h3 className="font-headline-sm text-headline-sm">Recent Activity</h3>
               <button className="text-primary text-sm font-label-bold hover:underline">View All</button>
