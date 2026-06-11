@@ -1,6 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
+@theme {
+  --color-primary: #ad2c00;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #d83900;
+  --color-on-primary-container: #fffbff;
+  --color-inverse-primary: #ffb5a0;
+  --color-primary-fixed: #ffdbd1;
+  --color-primary-fixed-dim: #ffb5a0;
+  --color-on-primary-fixed: #3b0900;
+  --color-on-primary-fixed-variant: #872000;
+
+  --color-secondary: #0060a9;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #4ba1fd;
+  --color-on-secondary-container: #003663;
+  --color-secondary-fixed: #d3e4ff;
+  --color-secondary-fixed-dim: #a2c9ff;
+  --color-on-secondary-fixed: #001c38;
+  --color-on-secondary-fixed-variant: #004881;
+
+  --color-tertiary: #005daa;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #0075d5;
+  --color-on-tertiary-container: #fefcff;
+  --color-tertiary-fixed: #d4e3ff;
+  --color-tertiary-fixed-dim: #a5c8ff;
+  --color-on-tertiary-fixed: #001c3a;
+  --color-on-tertiary-fixed-variant: #004785;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-surface: #f8f9fa;
+  --color-on-surface: #191c1d;
+  --color-surface-variant: #e1e3e4;
+  --color-on-surface-variant: #5d4038;
+  --color-surface-dim: #d9dadb;
+  --color-surface-bright: #f8f9fa;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+  --color-surface-tint: #b12d00;
+  --color-inverse-surface: #2e3132;
+  --color-inverse-on-surface: #f0f1f2;
+  --color-outline: #926f66;
+  --color-outline-variant: #e7bdb2;
+  --color-background: #f8f9fa;
+  --color-on-background: #191c1d;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-gutter: 16px;
+  --spacing-margin-mobile: 12px;
+  --spacing-margin-desktop: 24px;
+  --spacing-max-width-content: 640px;
+  --spacing-unit: 4px;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -71,11 +143,11 @@ html {
 
 /* Chat bubble shapes */
 .chat-bubble-peer {
-  border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 0.25rem;
 }
 
 .chat-bubble-user {
-  border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 0.25rem;
 }
 
 /* Shimmer animation */
@@ -111,38 +183,4 @@ html {
 
 .transition-smooth {
   transition: all 150ms ease-in-out;
-}
-
-/* UI Layout Utilities */
-.reddit-card {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #edeff1;
-}
-
-.marker-pulse {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.bottom-sheet-transition {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hide-scrollbar::-webkit-scrollbar { 
-  display: none; 
-}
-.hide-scrollbar { 
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
 }

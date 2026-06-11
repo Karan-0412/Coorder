@@ -35,11 +35,11 @@ export default function ChatBubble({
       </div>
 
       <div
-        className={`px-md py-sm rounded-xl ${
+        className={`px-md py-sm rounded-xl shadow-sm ${
           isUserMessage
-            ? 'bg-primary text-on-primary rounded-br-xs chat-bubble-user'
-            : 'bg-surface-container-high text-on-surface rounded-bl-xs chat-bubble-peer'
-        } reddit-card`}
+            ? 'bg-primary text-on-primary chat-bubble-user'
+            : 'bg-surface-container-high text-on-surface chat-bubble-peer'
+        }`}
       >
         {isLoading ? (
           <div className="flex gap-0.5 items-center justify-center py-1">

@@ -19,7 +19,7 @@ export default function FeaturedDealCard({
   onJoin,
 }: FeaturedDealCardProps) {
   return (
-    <div className="w-full relative h-[320px] rounded-2xl overflow-hidden shadow-sm group cursor-pointer">
+    <div className="w-full relative h-[320px] rounded-xl overflow-hidden shadow-sm group cursor-pointer">
       {/* Background Image */}
       <img
         alt={title}

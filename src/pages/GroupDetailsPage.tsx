@@ -60,7 +60,7 @@ export default function GroupDetailsPage() {
           </div>
 
           {/* Hero Image */}
-          <div className="w-full h-[300px] rounded-2xl overflow-hidden shadow-sm">
+          <div className="w-full h-[300px] rounded-xl overflow-hidden shadow-sm">
             <img 
               alt="ErgoPro X9" 
               className="w-full h-full object-cover" 
