@@ -11,63 +11,46 @@ export default function ChatBubble({
   message,
   sender,
   timestamp,
-  avatar,
   senderName,
   isLoading = false,
 }: ChatBubbleProps) {
   const isUserMessage = sender === 'user';
 
   return (
-    <div
-      className={`flex gap-2 ${isUserMessage ? 'justify-end' : 'justify-start'}`}
-    >
-      {!isUserMessage && avatar && (
-        <img
-          alt={senderName || 'User'}
-          src={avatar}
-          className="w-8 h-8 rounded-full object-cover flex-shrink-0 mt-1"
-        />
-      )}
-
-      <div className={`flex flex-col ${isUserMessage ? 'items-end' : 'items-start'}`}>
-        {!isUserMessage && senderName && (
-          <span className="text-[12px] font-bold text-on-surface-variant mb-1 px-3">
-            {senderName}
-          </span>
-        )}
-
-        <div
-          className={`max-w-xs lg:max-w-md px-3 py-2 rounded-lg text-body-md font-body-md break-words ${
-            isUserMessage
-              ? 'bg-primary text-on-primary chat-bubble-user'
-              : 'bg-surface-container text-on-surface chat-bubble-peer'
-          }`}
-        >
-          {isLoading ? (
-            <div className="flex gap-1">
-              <span className="w-2 h-2 bg-on-surface rounded-full animate-bounce" />
-              <span className="w-2 h-2 bg-on-surface rounded-full animate-bounce animation-delay-200" />
-              <span className="w-2 h-2 bg-on-surface rounded-full animate-bounce animation-delay-400" />
-            </div>
-          ) : (
-            message
-          )}
-        </div>
-
-        {timestamp && (
-          <span className="text-[10px] text-on-surface-variant mt-1 px-3">
-            {timestamp}
-          </span>
+    <div className={`flex flex-col max-w-[90%] ${isUserMessage ? 'items-end ml-auto' : 'items-start'}`}>
+      <div className={`flex items-center gap-xs mb-1 ${isUserMessage ? 'mr-1' : 'ml-1'}`}>
+        {!isUserMessage ? (
+          <>
+            <span className="text-[11px] font-bold text-on-surface-variant">
+              {senderName || 'Peer'}
+            </span>
+            {timestamp && <span className="text-[10px] text-outline">• {timestamp}</span>}
+          </>
+        ) : (
+          <>
+            {timestamp && <span className="text-[10px] text-outline">{timestamp} •</span>}
+            <span className="text-[11px] font-bold text-primary">You</span>
+          </>
         )}
       </div>
 
-      {isUserMessage && avatar && (
-        <img
-          alt={senderName || 'User'}
-          src={avatar}
-          className="w-8 h-8 rounded-full object-cover flex-shrink-0 mt-1"
-        />
-      )}
+      <div
+        className={`px-md py-sm rounded-xl ${
+          isUserMessage
+            ? 'bg-primary text-on-primary rounded-br-xs chat-bubble-user'
+            : 'bg-surface-container-high text-on-surface rounded-bl-xs chat-bubble-peer'
+        } reddit-card`}
+      >
+        {isLoading ? (
+          <div className="flex gap-0.5 items-center justify-center py-1">
+            <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce"></div>
+            <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.15s' }}></div>
+            <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.3s' }}></div>
+          </div>
+        ) : (
+          <p className="text-body-md whitespace-pre-wrap">{message}</p>
+        )}
+      </div>
     </div>
   );
 }

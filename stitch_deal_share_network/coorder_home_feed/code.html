@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coorder - Group Buying Reinvented</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e1e3e4;
+            border-radius: 10px;
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255, 69, 0, 0.05), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#005daa",
+                      "on-secondary-fixed": "#001c38",
+                      "on-primary-fixed-variant": "#872000",
+                      "primary-fixed-dim": "#ffb5a0",
+                      "surface-bright": "#f8f9fa",
+                      "outline-variant": "#e7bdb2",
+                      "on-background": "#191c1d",
+                      "inverse-surface": "#2e3132",
+                      "on-secondary-container": "#003663",
+                      "surface-container": "#edeeef",
+                      "on-primary": "#ffffff",
+                      "background": "#f8f9fa",
+                      "error-container": "#ffdad6",
+                      "primary": "#ad2c00",
+                      "tertiary-fixed-dim": "#a5c8ff",
+                      "surface-variant": "#e1e3e4",
+                      "inverse-on-surface": "#f0f1f2",
+                      "surface-container-high": "#e7e8e9",
+                      "primary-container": "#d83900",
+                      "on-primary-fixed": "#3b0900",
+                      "surface": "#f8f9fa",
+                      "surface-tint": "#b12d00",
+                      "surface-container-highest": "#e1e3e4",
+                      "secondary-fixed-dim": "#a2c9ff",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#fefcff",
+                      "surface-dim": "#d9dadb",
+                      "secondary": "#0060a9",
+                      "on-secondary-fixed-variant": "#004881",
+                      "on-primary-container": "#fffbff",
+                      "secondary-container": "#4ba1fd",
+                      "surface-container-low": "#f3f4f5",
+                      "secondary-fixed": "#d3e4ff",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#ffdbd1",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#004785",
+                      "on-surface-variant": "#5d4038",
+                      "on-surface": "#191c1d",
+                      "on-tertiary-fixed": "#001c3a",
+                      "inverse-primary": "#ffb5a0",
+                      "tertiary-container": "#0075d5",
+                      "tertiary-fixed": "#d4e3ff",
+                      "outline": "#926f66",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "12px",
+                      "max-width-content": "640px",
+                      "lg": "24px",
+                      "margin-desktop": "24px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "gutter": "16px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["IBM Plex Sans"],
+                      "headline-lg": ["IBM Plex Sans"],
+                      "label-sm": ["IBM Plex Sans"],
+                      "body-lg": ["IBM Plex Sans"],
+                      "headline-lg-mobile": ["IBM Plex Sans"],
+                      "label-bold": ["IBM Plex Sans"],
+                      "headline-md": ["IBM Plex Sans"]
+              },
+              "fontSize": {
+                      "body-md": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "headline-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "label-sm": ["10px", {"lineHeight": "14px", "fontWeight": "500"}],
+                      "body-lg": ["14px", {"lineHeight": "21px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["20px", {"lineHeight": "26px", "fontWeight": "600"}],
+                      "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                      "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-[100] shadow-sm dark:shadow-none bg-surface dark:bg-surface-dim flex justify-between items-center px-gutter py-md w-full">
+<div class="flex items-center gap-4">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed font-black tracking-tight">Coorder</span>
+</div>
+<!-- Desktop Nav Center -->
+<div class="hidden md:flex items-center gap-6">
+<button class="font-label-bold text-label-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+                Deals
+            </button>
+<button class="font-label-bold text-label-bold text-on-surface-variant hover:opacity-80 transition-opacity flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">map</span>
+                Map
+            </button>
+<button class="font-label-bold text-label-bold text-on-surface-variant hover:opacity-80 transition-opacity flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+                Chat
+            </button>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">search</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbFrafJmmVIAGXC--XwoVR1t7swTRgRDY5mR6nWC-CnrXUGhO1_4NORfJfnMfwHlJ3JhVqi8I_zp9Q5SBg-v1MQT7-4ghn7w-OEt2TDRbS_KxwEw5FDZGYVlSNZaaz9C8MgZpc1jADcjYrGdZyzExv1qW2Y96k6kYedSy_uHxGgz-Tfh4wWaqAcDXefPOsl047nPMvyMeQcT9EN7T59O_qxyw3MD5G7vWZF1NeO0WKe40BtZyeXFwY2IKhnpVvF6YPcSa5liVANN0"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto flex gap-6 px-margin-mobile md:px-margin-desktop py-6 mb-20">
+<!-- Left Sidebar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col w-[240px] sticky top-24 h-fit gap-4">
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant mb-3 px-2">FEED</p>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 p-2 bg-primary-container/10 text-primary rounded-lg font-label-bold text-label-bold" href="#">
+<span class="material-symbols-outlined">group</span> Group Buys
+                    </a>
+<a class="flex items-center gap-3 p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg font-label-bold text-label-bold transition-colors" href="#">
+<span class="material-symbols-outlined">trending_up</span> Popular
+                    </a>
+<a class="flex items-center gap-3 p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg font-label-bold text-label-bold transition-colors" href="#">
+<span class="material-symbols-outlined">new_releases</span> Newest
+                    </a>
+</nav>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30">
+<p class="font-label-bold text-label-bold text-on-surface-variant mb-3 px-2">COMMUNITIES</p>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg font-label-bold text-label-bold transition-colors" href="#">
+<span class="w-6 h-6 rounded bg-tertiary flex items-center justify-center text-[10px] text-white">T</span> Tech Gear
+                    </a>
+<a class="flex items-center gap-3 p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg font-label-bold text-label-bold transition-colors" href="#">
+<span class="w-6 h-6 rounded bg-secondary flex items-center justify-center text-[10px] text-white">H</span> Home Essentials
+                    </a>
+</nav>
+</div>
+</aside>
+<!-- Main Feed Center -->
+<section class="flex-1 max-w-max-width-content mx-auto w-full flex flex-col gap-4">
+<!-- Quick Category Filter (Mobile/Tablet) -->
+<div class="lg:hidden flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 bg-primary text-white rounded-full font-label-bold text-label-bold shadow-sm">Group Buys</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-bold text-label-bold">Flash Sales</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-bold text-label-bold">Coupons</button>
+<button class="whitespace-nowrap px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-bold text-label-bold">Bundles</button>
+</div>
+<!-- Bento Card: Highlighted Deal -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+<div class="md:col-span-2 relative h-[320px] rounded-2xl overflow-hidden shadow-sm group">
+<img alt="Flagship Deal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A premium workspace setup with a sleek aluminum laptop, high-end mechanical keyboard, and a large curved monitor. The lighting is moody and professional with soft orange highlights, reflecting a high-tech modern aesthetic. The atmosphere is productive and clean, perfectly suited for a flagship deal showcase." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGYsEI_hskevDIZ3GNTB5wnekX4JmnMq2W_x2Aqzfp1z_xBRwL_ZxOdkBWqbpC9uYj0AWaRmDrNYlSvVpgxi78ddgCQ2pIpx7mAiTrnkDIMVSBGGX6FCLmJIoXFYFdJWHb7ex0enp_b07gLT5jeAYu7E_SalcZGrwO_xrLXCeqLD31HfeCVCNyGHnk7Vq2xbLMGwAstH6_QFcbkVMeLtDT0uL4ke0b1Ih0g8zIqABJdwuHKfDwoPKRzbZXQsKFJFQP_BV1PFm69G0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+<div class="flex gap-2 mb-3">
+<span class="bg-primary text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">Group Active</span>
+<span class="bg-white/20 backdrop-blur-md text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider border border-white/30">3 Spots Left</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-white mb-2">ErgoPro X9 Mechanical Keyboard</h2>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-white font-bold text-xl">$149.00</span>
+<span class="text-white/60 line-through text-sm">$229.00</span>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-label-bold text-label-bold transition-all shadow-lg active:scale-95">Join Group</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Feed Post: Group Buy Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden hover:border-primary/30 transition-colors shadow-sm">
+<div class="p-3 md:p-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary">T</div>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold">r/TechGroup</span>
+<span class="text-[10px] text-on-surface-variant">Posted by u/DealFinder • 2h ago</span>
+</div>
+</div>
+<div class="flex items-center gap-1 px-2 py-1 bg-tertiary/10 text-tertiary rounded-full">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Escrow Protected</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Ultimate Smart Home Bundle: 4x Smart Plugs + Hub</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Looking for 5 more members to unlock the bulk discount. Currently at 45% off MSRP! All orders handled via Coorder Escrow for guaranteed safety.</p>
+<div class="relative h-64 md:h-80 w-full rounded-lg overflow-hidden bg-surface-container mb-4">
+<img alt="Smart Home Deal" class="w-full h-full object-cover" data-alt="A set of sleek, minimal white smart home devices arranged neatly on a wooden shelf. The environment is warm and domestic, illuminated by soft morning sunlight. The high-quality photography captures fine details and textures, maintaining a clean and modern residential vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvBysmIp848sGcF4LaKhQeMOdpE9lpNOkd6exqrQv6zi3s_YhEabCvOfHY7oRJBLWPpsnP74ndQtfFLKJakOL-RrGrqEhvwOMj39Q7PsyKyTuZHg3CMMiCuAHlTCDOz7qsOlmc6wCfVL_t0yXWqwr5rn3_P-7l4h0RxC5raKbEMDWPsDQdbowPO_SAQK-Xtgc3RyYIOkawSUA-G7C7CK44HfhsD4TMTXYOV83zcqx5kxEIzrMNfg1idwz0dl12-t-NUEZz8N_iw2c"/>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Progress Bar -->
+<div class="w-full">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[11px] font-bold text-primary">GROUP PROGRESS</span>
+<span class="text-[11px] font-bold text-on-surface-variant">7/10 SPOTS FILLED</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-1000" style="width: 70%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-3">
+<div class="flex gap-4">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+<span class="font-label-bold text-label-bold">1.2k</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">mode_comment</span>
+<span class="font-label-bold text-label-bold">84</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-bold text-label-bold active:scale-95 transition-all">Join for $59</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Feed Post 2: Group Active -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden hover:border-primary/30 transition-colors shadow-sm">
+<div class="p-3 md:p-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-secondary">C</div>
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold">r/CoffeeNerd</span>
+<span class="text-[10px] text-on-surface-variant">Posted by u/BaristaLife • 5h ago</span>
+</div>
+</div>
+<span class="bg-primary text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">Group Active</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Comandante C40 MK4 Grinder - Limited Liquid Amber</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Secured a wholesale lot of 12 grinders. 9 already spoken for. Escrow protection enabled.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-3">
+<div class="flex gap-4">
+<button class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+<span class="font-label-bold text-label-bold">452</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">mode_comment</span>
+<span class="font-label-bold text-label-bold">12</span>
+</button>
+</div>
+<button class="border border-primary text-primary px-6 py-2 rounded-full font-label-bold text-label-bold hover:bg-primary/5 transition-all">Claim Spot ($240)</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Sidebar (Desktop Only) -->
+<aside class="hidden xl:flex flex-col w-[300px] sticky top-24 h-fit gap-4">
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/30">
+<h4 class="font-headline-md text-headline-md mb-4">About Coorder</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">The democratic way to shop. Leverage collective bargaining to get wholesale prices on the products you love.</p>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+<div>
+<p class="font-label-bold text-label-bold">Escrow Protected</p>
+<p class="text-[11px] text-on-surface-variant">Funds are only released once the group buy is fulfilled.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+<div>
+<p class="font-label-bold text-label-bold">Power in Numbers</p>
+<p class="text-[11px] text-on-surface-variant">Unlock tier-based discounts as more people join.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 bg-primary text-white py-3 rounded-full font-label-bold text-label-bold shadow-lg hover:opacity-90 active:scale-95 transition-all">Start Your Own Group</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/30">
+<h4 class="font-label-bold text-label-bold text-on-surface-variant mb-3 uppercase">TOP ACTIVE GROUPS</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="font-headline-md text-headline-md text-surface-variant">01</span>
+<div class="flex-1">
+<p class="font-label-bold text-label-bold line-clamp-1">RTX 4080 Founders Ed.</p>
+<p class="text-[10px] text-primary font-bold">95% Complete</p>
+</div>
+</div>
+<div class="flex items-center gap-3 border-t border-outline-variant/10 pt-3">
+<span class="font-headline-md text-headline-md text-surface-variant">02</span>
+<div class="flex-1">
+<p class="font-label-bold text-label-bold line-clamp-1">Herman Miller Embody</p>
+<p class="text-[10px] text-primary font-bold">82% Complete</p>
+</div>
+</div>
+<div class="flex items-center gap-3 border-t border-outline-variant/10 pt-3">
+<span class="font-headline-md text-headline-md text-surface-variant">03</span>
+<div class="flex-1">
+<p class="font-label-bold text-label-bold line-clamp-1">Sony WH-1000XM5</p>
+<p class="text-[10px] text-primary font-bold">60% Complete</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container dark:bg-surface-container-lowest flex justify-around items-center px-4 pb-safe pt-2 rounded-t-xl shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-5 py-1.5 transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-medium">Deals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-2 hover:bg-surface-variant/50 transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-2 hover:bg-surface-variant/50 transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-[10px] font-medium">Chat</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interactions
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if(el.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+
+        // Sticky header behavior
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            header.style.transition = 'transform 0.3s ease-in-out';
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>

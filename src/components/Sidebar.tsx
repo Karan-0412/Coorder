@@ -27,15 +27,16 @@ interface CommunityItemProps {
   icon: string;
   label: string;
   href: string;
+  bgColorClass: string;
 }
 
-function CommunityItem({ icon, label, href }: CommunityItemProps) {
+function CommunityItem({ icon, label, href, bgColorClass }: CommunityItemProps) {
   return (
     <Link
       to={href}
       className="flex items-center gap-3 p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg font-label-bold text-label-bold transition-colors"
     >
-      <span className="w-6 h-6 rounded bg-tertiary flex items-center justify-center text-[10px] text-white font-bold">
+      <span className={`w-6 h-6 rounded ${bgColorClass} flex items-center justify-center text-[10px] text-white font-bold`}>
         {icon}
       </span>
       {label}
@@ -76,10 +77,10 @@ export default function Sidebar({ className = '' }: SidebarProps) {
           COMMUNITIES
         </p>
         <nav className="flex flex-col gap-1">
-          <CommunityItem icon="T" label="Tech Gear" href="/" />
-          <CommunityItem icon="H" label="Home Essentials" href="/" />
-          <CommunityItem icon="F" label="Fashion & Beauty" href="/" />
-          <CommunityItem icon="G" label="Gaming Gear" href="/" />
+          <CommunityItem icon="T" label="Tech Gear" href="/" bgColorClass="bg-tertiary" />
+          <CommunityItem icon="H" label="Home Essentials" href="/" bgColorClass="bg-secondary" />
+          <CommunityItem icon="F" label="Fashion & Beauty" href="/" bgColorClass="bg-primary" />
+          <CommunityItem icon="G" label="Gaming Gear" href="/" bgColorClass="bg-surface-tint" />
         </nav>
       </div>
     </aside>
