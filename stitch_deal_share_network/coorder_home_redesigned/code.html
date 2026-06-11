@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coorder | Multiply Your Buying Power</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d9dadb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-surface": "#2e3132",
+                        "primary-container": "#d83900",
+                        "on-tertiary-fixed-variant": "#004785",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-surface": "#191c1d",
+                        "surface-variant": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5d4038",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#a5c8ff",
+                        "on-tertiary-container": "#fefcff",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-container": "#003663",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#4ba1fd",
+                        "secondary-fixed": "#d3e4ff",
+                        "primary-fixed-dim": "#ffb5a0",
+                        "tertiary-fixed": "#d4e3ff",
+                        "background": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "on-primary": "#ffffff",
+                        "outline": "#926f66",
+                        "primary-fixed": "#ffdbd1",
+                        "on-background": "#191c1d",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#872000",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-fixed": "#001c3a",
+                        "on-primary-fixed": "#3b0900",
+                        "error-container": "#ffdad6",
+                        "secondary": "#0060a9",
+                        "secondary-fixed-dim": "#a2c9ff",
+                        "on-secondary-fixed": "#001c38",
+                        "inverse-primary": "#ffb5a0",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-container": "#0075d5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#005daa",
+                        "primary": "#ad2c00",
+                        "brand-primary": "#ff4500",
+                        "surface-tint": "#b12d00",
+                        "outline-variant": "#e7bdb2",
+                        "on-primary-container": "#fffbff",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#004881"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width-content": "640px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "margin-mobile": "12px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin-desktop": "24px",
+                        "lg": "24px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["IBM Plex Sans"],
+                        "headline-lg-mobile": ["IBM Plex Sans"],
+                        "label-sm": ["IBM Plex Sans"],
+                        "body-md": ["IBM Plex Sans"],
+                        "label-bold": ["IBM Plex Sans"],
+                        "headline-md": ["IBM Plex Sans"],
+                        "body-lg": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-md": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "fontWeight": "700" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-lg": ["14px", { "lineHeight": "21px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 16px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #EDEFF1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #ffebdf 0%, #f8f9fa 60%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="text-on-surface">
+<!-- TopAppBar Navigation -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-surface-container-highest flex justify-between items-center px-12 h-14 transition-colors duration-200">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-primary" style="font-size: 28px;">hub</span>
+<span class="font-headline-lg text-brand-primary font-bold">Coorder</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-brand-primary transition-colors font-body-lg" href="#">Explore Deals</a>
+<a class="text-on-surface-variant hover:text-brand-primary transition-colors font-body-lg" href="#">How it Works</a>
+<a class="text-on-surface-variant hover:text-brand-primary transition-colors font-body-lg" href="#">Community</a>
+<button class="bg-brand-primary text-white px-6 py-2 rounded-full font-label-bold hover:opacity-90 transition-opacity">Login</button>
+</nav>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</div>
+</header>
+<main class="overflow-hidden">
+<!-- Hero Section -->
+<section class="hero-gradient pt-20 pb-32 px-margin-mobile md:px-0">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2 flex flex-col items-start gap-6">
+<div class="inline-flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-sm">local_fire_department</span>
+<span class="text-label-bold">Join 10,000+ Neighbors Today</span>
+</div>
+<h1 class="font-headline-lg text-5xl md:text-6xl leading-[1.1] text-on-surface tracking-tight font-bold">
+                        Multiply Your <br/><span class="text-brand-primary">Buying Power.</span>
+</h1>
+<p class="font-body-lg text-lg text-on-surface-variant max-w-lg">
+                        Coorder helps neighborhoods unlock direct-from-wholesaler prices. Connect with neighbors, reach order minimums, and save up to 40% on essentials.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-brand-primary text-white px-8 py-4 rounded-xl font-headline-md shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                            Get Started
+                        </button>
+<button class="bg-surface-container-low text-secondary border border-outline-variant px-8 py-4 rounded-xl font-headline-md hover:bg-surface-container-high transition-all">
+                            Explore Deals
+                        </button>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative">
+<div class="relative z-10 rounded-[32px] overflow-hidden shadow-2xl border-4 border-white">
+<img class="w-full h-[500px] object-cover" data-alt="A diverse group of cheerful neighbors in a sun-drenched suburban driveway, gathered around a large delivery of fresh produce and wholesale boxes. They are laughing and interacting warmly, sharing the joy of a collective purchase. The lighting is warm and natural, creating a trustworthy and communal atmosphere that perfectly aligns with the bright, modern Coorder brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQqxz3KPisz8KN_gR_ryiUVHtVKBWaxNcUMS8l_LDSWkMQnaN-dTCKPK3GLTDzmf_9NNZEI33TJajuBCleawNK_PKZMwrt9OFTI1aadLadd0gU-wMYNGZiTTSPkxXAYCC39jUzXsuhG2HcCQ8MqyqNIaNUG8YlGtTZAeZSQLusT_BUVmKPHNxJIGsCY2imtyMo173nzV9L7gVcm6Mu5_fRZwPsC0NhBFtrtyfsj4kH_bTETa4Zvh_IAjlLMTptCKOhASDWXMT2OB8"/>
+</div>
+<!-- Floating Stat Cards -->
+<div class="absolute -bottom-6 -left-6 z-20 glass-card p-4 rounded-2xl shadow-lg flex items-center gap-3">
+<div class="bg-secondary-container p-2 rounded-full">
+<span class="material-symbols-outlined text-on-secondary-container">trending_down</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Average Savings</p>
+<p class="font-headline-md text-brand-primary">35% Per Order</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Props - Bento Style -->
+<section class="py-24 px-margin-mobile">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-4xl mb-4">Smarter Shopping for Modern Communities</h2>
+<p class="font-body-lg text-on-surface-variant">Why join the group buying revolution?</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Prop 1 -->
+<div class="bg-white border border-surface-container-highest p-8 rounded-[24px] hover:border-brand-primary transition-colors group">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-2xl mb-6 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-brand-primary text-3xl">groups_2</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Collective Savings</h3>
+<p class="font-body-lg text-on-surface-variant">Unlock wholesale tiers by pooling orders with people in your zip code. Reach high minimums effortlessly.</p>
+</div>
+<!-- Prop 2 -->
+<div class="bg-white border border-surface-container-highest p-8 rounded-[24px] hover:border-brand-primary transition-colors group">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-2xl mb-6 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-brand-primary text-3xl">verified_user</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Secure Escrow</h3>
+<p class="font-body-lg text-on-surface-variant">Your funds are held safely in our neutral escrow system. Sellers only get paid once the community confirms delivery.</p>
+</div>
+<!-- Prop 3 -->
+<div class="bg-white border border-surface-container-highest p-8 rounded-[24px] hover:border-brand-primary transition-colors group">
+<div class="w-14 h-14 bg-surface-container flex items-center justify-center rounded-2xl mb-6 group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-brand-primary text-3xl">location_on</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Local Impact</h3>
+<p class="font-body-lg text-on-surface-variant">Reduce carbon footprints through consolidated deliveries while supporting local distributors and producers.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Section -->
+<section class="bg-surface-container-lowest py-20 overflow-hidden">
+<div class="max-w-4xl mx-auto text-center px-margin-mobile">
+<div class="flex justify-center -space-x-4 mb-8">
+<img alt="User Avatar" class="w-16 h-16 rounded-full border-4 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHSvIieUNHfYHE3E_8waEHNniBBtjI_hyTRFqzWU826NWAn3dwCCdHMf8-a8jmvZqW0eFZm79Sibr1scKsSTQ-0Ap1REV_CKzDB4gYPaUuMnnh7zCnCj-Lil-NMEg5iEUzSBIOfuyBlN23_D-vWiWHnhd-9tGKhhHbhzaaO4Z1dmcaoTMmc81RG3_Z_R3wzENr5Xil3KoA59ks8_bhol62SQUPMph2k1CnCjxFGyi8dMDZPsQWkdHNoL4hhLlLbzUGRxhx_pr1RcA"/>
+<img alt="User Avatar" class="w-16 h-16 rounded-full border-4 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2sZ2mDVNU8aMFQSkJ6mxx6wsz_EfLYFEOGA8XlXu1WxPu0kmahjYjeOFtVpBJv-L1gA2rz-IJUwl0d5jpZbnLk8Xwi3lAXCEJc6T9lDu5ZRkaGVxuCeVaApKfH-xT73fmAaK97voNuoPeWOBKS121ANONMUD2vYDp5X5wZkDMDb6yFYLZdlICKWopYk6QO40Cll5_jMEnqXFqfE12hLGefY0LeD2hE6hzsT_aN1jjWINwnIvuQdnJ7hpYQawkaEwJjk96z174QqI"/>
+<img alt="User Avatar" class="w-16 h-16 rounded-full border-4 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlp26CmHyOwv4W1FdRLWVAWbZjpmNxaknzL55h2fuFQyV3F_dDgm4T2cmvbNR60UX8oMaQqN2TqpvQv8lvZXGhUjvO7bacg3cHqegonTiY9WuJY0iOWESWtZbY2itnNDyu9mjjY8ljPqY17G7IzOgHnEObK14whid_UT1Lf1b5u_MPX_T5k37fMawnK7faFFT88VuzX7-1wxvGXHsolTPTythK6qNWLiLHfl8vlziZLCpFi3z94SvKmw6bmPKwpW-5m0-B7jzWppI"/>
+<img alt="User Avatar" class="w-16 h-16 rounded-full border-4 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpJGGfH5iRmlhcFlIIYzB4kKSbZJSx2TdMaM4Kgy000L9VpkRggp21CacVRCSDlOz9gNs_nOiDSBwliNv1OJmxqkxtpPER7UbQczmA9r7p6HPb7EiOCLNkLRgtPWslmd-1YHlX7xC8bMCfxystIHNtC_cDyMGjKHdowa8mVCJQIb4phvBbML3MExPPL-gXwF0HTauxzVtOGU7yXfBi6ccfQyna9j8TjZKlcCogRZeIRP59GQFkkRDoEdw0_hQM1bpV8kfPz-KZwV4"/>
+<img alt="User Avatar" class="w-16 h-16 rounded-full border-4 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuaVVEXMAufZYo9nM3zhdcfPpt7ivZnJz32K2EZeIVawH9rPEtvw1l9-kXUvQ4423nbESI-ZNp7-lNsSNmGZ6PNjmnWNES5_TmL3CVEdlnuJ8-V9Tm4tQN9XW0oyb-YJwGtbr0-Zzm251yoxjIG2jpbH5SlKk-O0e1r85ZiAgUJAiksV93EzQFGslieEDAR1I4Yb74D1Hr-2P5nYzjaPg_95luFEbfD1TIdyfAJpNb_2MJIXZNrwXIvdQRSjSn4ss14Yy2wKx55fs"/>
+<div class="w-16 h-16 rounded-full bg-brand-primary border-4 border-white flex items-center justify-center text-white font-label-bold">+</div>
+</div>
+<h2 class="font-headline-lg text-3xl mb-4">Join 10,000+ Neighbors already saving</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto italic">
+                    "Since joining Coorder, our weekly grocery bill for organic produce has dropped by 40%. It's like having a neighborhood superpower!"
+                </p>
+<p class="font-label-bold mt-4">— Sarah J., Community Lead</p>
+</div>
+</section>
+<!-- How it Works -->
+<section class="py-24 bg-white">
+<div class="max-w-6xl mx-auto px-margin-mobile">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-4xl mb-4">Start Saving in 3 Steps</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+<!-- Connector line for desktop -->
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-surface-container-highest -translate-y-12 -z-10"></div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center font-headline-lg mb-6 shadow-xl ring-8 ring-primary-fixed">1</div>
+<h4 class="font-headline-md text-xl mb-2">Find a Deal</h4>
+<p class="font-body-md text-on-surface-variant">Browse local group buys for groceries, household items, or electronics in your area.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center font-headline-lg mb-6 shadow-xl ring-8 ring-primary-fixed">2</div>
+<h4 class="font-headline-md text-xl mb-2">Join the Group</h4>
+<p class="font-body-md text-on-surface-variant">Pledge your quantity. As more neighbors join, the price drops for everyone automatically.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center font-headline-lg mb-6 shadow-xl ring-8 ring-primary-fixed">3</div>
+<h4 class="font-headline-md text-xl mb-2">Save Together</h4>
+<p class="font-body-md text-on-surface-variant">Once the goal is met, items are shipped to a local hub for easy pickup. Collective win!</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="py-12 bg-surface-container-low border-y border-surface-container-highest">
+<div class="max-w-6xl mx-auto px-margin-mobile">
+<p class="text-center text-label-sm uppercase tracking-widest text-outline mb-8">Secure Payments Guaranteed By</p>
+<div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">payments</span>
+<span class="font-bold text-xl">PAYSAFE</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">shield</span>
+<span class="font-bold text-xl">SECUREGUARD</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">account_balance</span>
+<span class="font-bold text-xl">BANKCONNECT</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl">lock</span>
+<span class="font-bold text-xl">CYBERVAULT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 relative overflow-hidden bg-on-surface text-white">
+<div class="absolute inset-0 opacity-10">
+
+</div>
+<div class="max-w-4xl mx-auto text-center relative z-10 px-margin-mobile">
+<h2 class="font-headline-lg text-5xl mb-6">Ready to join the revolution?</h2>
+<p class="font-body-lg text-surface-variant text-xl mb-10 max-w-xl mx-auto">
+                    Stop overpaying individually. Start saving collectively. Join your neighborhood's buying circle today.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-brand-primary text-white px-10 py-5 rounded-full font-headline-md text-lg hover:scale-105 transition-transform shadow-xl">
+                        Create Your Group
+                    </button>
+<button class="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-headline-md text-lg hover:bg-white hover:text-on-surface transition-colors">
+                        Browse Marketplace
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Simple Footer -->
+<footer class="bg-surface-container-highest py-12 px-margin-mobile">
+<div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-brand-primary">hub</span>
+<span class="font-headline-md text-brand-primary font-bold">Coorder</span>
+</div>
+<p class="text-label-sm text-on-surface-variant">© 2024 Coorder Technologies. <br/>All rights reserved.</p>
+</div>
+<div>
+<h5 class="font-label-bold mb-4">Platform</h5>
+<ul class="text-body-md text-on-surface-variant space-y-2">
+<li><a class="hover:text-brand-primary" href="#">Find Deals</a></li>
+<li><a class="hover:text-brand-primary" href="#">How it Works</a></li>
+<li><a class="hover:text-brand-primary" href="#">Success Stories</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-bold mb-4">Support</h5>
+<ul class="text-body-md text-on-surface-variant space-y-2">
+<li><a class="hover:text-brand-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-brand-primary" href="#">Escrow Safety</a></li>
+<li><a class="hover:text-brand-primary" href="#">Community Guidelines</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-bold mb-4">Legal</h5>
+<ul class="text-body-md text-on-surface-variant space-y-2">
+<li><a class="hover:text-brand-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-brand-primary" href="#">Terms of Service</a></li>
+<li><a class="hover:text-brand-primary" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<!-- Bottom Nav for Mobile -->
+<div class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center py-2 px-margin-mobile bg-surface border-t border-surface-container-highest">
+<div class="flex flex-col items-center justify-center text-brand-primary font-label-bold">
+<span class="material-symbols-outlined">local_fire_department</span>
+<span class="text-label-sm">Deals</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">map</span>
+<span class="text-label-sm">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-label-sm">Chat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm">Profile</span>
+</div>
+</div>
+<script>
+        // Smooth reveal on scroll interaction
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

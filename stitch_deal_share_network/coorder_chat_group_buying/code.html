@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191c1d",
+                    "surface-tint": "#b12d00",
+                    "primary-fixed": "#ffdbd1",
+                    "outline": "#926f66",
+                    "on-secondary-fixed": "#001c38",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-fixed": "#d4e3ff",
+                    "on-secondary-container": "#003663",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#4ba1fd",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#d3e4ff",
+                    "on-surface": "#191c1d",
+                    "surface-bright": "#f8f9fa",
+                    "inverse-primary": "#ffb5a0",
+                    "on-primary-fixed": "#3b0900",
+                    "tertiary-container": "#0075d5",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#e7bdb2",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#5d4038",
+                    "secondary-fixed-dim": "#a2c9ff",
+                    "surface": "#f8f9fa",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#872000",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-surface": "#2e3132",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container": "#edeeef",
+                    "on-primary-container": "#fffbff",
+                    "primary": "#ad2c00",
+                    "surface-dim": "#d9dadb",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed-dim": "#a5c8ff",
+                    "primary-fixed-dim": "#ffb5a0",
+                    "on-tertiary-fixed-variant": "#004785",
+                    "error": "#ba1a1a",
+                    "tertiary": "#005daa",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-tertiary-fixed": "#001c3a",
+                    "on-secondary-fixed-variant": "#004881",
+                    "primary-container": "#d83900",
+                    "on-tertiary-container": "#fefcff",
+                    "secondary": "#0060a9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "margin-desktop": "24px",
+                    "unit": "4px",
+                    "max-width-content": "640px",
+                    "xl": "32px",
+                    "gutter": "16px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "margin-mobile": "12px"
+            },
+            "fontFamily": {
+                    "body-md": ["IBM Plex Sans"],
+                    "headline-md": ["IBM Plex Sans"],
+                    "label-bold": ["IBM Plex Sans"],
+                    "label-sm": ["IBM Plex Sans"],
+                    "headline-lg-mobile": ["IBM Plex Sans"],
+                    "body-lg": ["IBM Plex Sans"],
+                    "headline-lg": ["IBM Plex Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "label-sm": ["10px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["20px", {"lineHeight": "26px", "fontWeight": "600"}],
+                    "body-lg": ["14px", {"lineHeight": "21px", "fontWeight": "400"}],
+                    "headline-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .chat-bubble-peer {
+            position: relative;
+            border-bottom-left-radius: 4px;
+        }
+        .chat-bubble-user {
+            position: relative;
+            border-bottom-right-radius: 4px;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d9dadb;
+            border-radius: 10px;
+        }
+        .blur-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .reddit-card {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="w-full top-0 sticky bg-surface/90 blur-nav border-b border-surface-container-highest flex justify-between items-center px-gutter py-sm w-full z-40">
+<div class="flex items-center gap-sm">
+<button class="active:scale-95 transition-transform duration-150 text-on-surface-variant p-1">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex items-center gap-base">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-outline/10">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-NU_5C32IYAPuTssDL-xnh7odRuJ5dY1XUKPD9N51mbsYrcuAsNEU81nHr3HvBkxW-htzop3eaVXnXPrdGrmpy0wasYtuoMcoNhQAXdRLwppclnCnw0XPk-NPyvwNQ2ZzTwCA8ymOITVtGEAGmDwxr-9nVcAoYOX6GEdAwStTvxmVSsqOHuUepmZBV6xmPCUGj5v_pl8dKrSBzyLvxVdogEAZANDpOXlt9o5kqC4lhS_bSZ2Q7QwZC-ZHnmky3BmB27E4tGhlWZM"/>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-sm leading-tight">Alex Rivera</span>
+<span class="text-[10px] font-medium text-primary">Online</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">search</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">more_horiz</span>
+</div>
+</header>
+<!-- Main Message Canvas -->
+<main class="flex-1 flex flex-col w-full max-w-[640px] mx-auto relative px-gutter pb-[180px]">
+<!-- Shared Context: Deal Card -->
+<div class="sticky top-[56px] z-30 pt-sm pb-md">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg reddit-card overflow-hidden flex animate-in slide-in-from-top duration-500">
+<div class="w-20 sm:w-24 h-auto relative overflow-hidden bg-surface-container">
+<img alt="Monitor" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAYl5pyucHvvTyj7dqUnCb0I4FnFW3FaNljjkyq5qYhBXqnzaaNYUe-s7W6zbpW4awFyqwHdQAZ5P1NNIUMlbNR0VFVeEofMvPPMDv4l9_zq-LW3YxG7s68udU9CwkfJDnakqhBsSz4mCWE1aegCGgmNWiUK1SJ3bk4QSt3RGNyCf3n62qtmJfELn2WxX5zg_E-a5rW1JOwVl7YpZnLP_DLEW-eCsu-GxOhBPxs94jaKpjyNVbCrd2jsWRCT1cTcZ-YBCmEjTtNX8"/>
+<div class="absolute top-1 left-1 bg-primary text-on-primary text-[9px] px-1.5 py-0.5 rounded font-bold uppercase">
+                    Hot
+                </div>
+</div>
+<div class="flex-1 p-sm flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-sm line-clamp-1">Pro Gaming Monitor 4K 144Hz</h3>
+<span class="text-primary font-bold text-sm ml-2">$349.99</span>
+</div>
+<p class="text-[11px] text-on-surface-variant line-clamp-1 mt-0.5">r/techdeals • TechHaven Electronics</p>
+</div>
+<div class="flex items-center justify-between mt-xs"><div class="flex items-center gap-1 text-secondary bg-secondary-container/10 px-2 py-0.5 rounded-full"><span class="material-symbols-outlined text-[12px] font-bold">shield_with_heart</span><span class="text-[9px] font-bold uppercase">Escrow Protected</span></div>
+<div class="flex items-center gap-1 text-primary-fixed-dim bg-primary/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px] font-bold">verified</span>
+<span class="text-[9px] font-bold">VERIFIED</span>
+</div>
+<button class="text-[11px] font-bold text-secondary uppercase hover:underline">View Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat History -->
+<div class="flex flex-col gap-md py-md">
+<!-- Peer Message -->
+<div class="flex flex-col items-start max-w-[90%]">
+<div class="flex items-center gap-xs mb-1 ml-1">
+<span class="text-[11px] font-bold text-on-surface-variant">Alex</span>
+<span class="text-[10px] text-outline">• 10:42 AM</span>
+</div>
+<div class="bg-surface-container-high text-on-surface px-md py-sm rounded-xl rounded-bl-xs chat-bubble-peer reddit-card">
+<p class="text-body-md">Hey! Did you see the gaming monitor deal I just posted? If we start a group buy, we can get an even better price with secure escrow payments.</p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end max-w-[90%] ml-auto">
+<div class="flex items-center gap-xs mb-1 mr-1">
+<span class="text-[10px] text-outline">10:44 AM •</span>
+<span class="text-[11px] font-bold text-primary">You</span>
+</div>
+<div class="bg-primary text-on-primary px-md py-sm rounded-xl rounded-br-xs chat-bubble-user reddit-card">
+<p class="text-body-md">Just saw it! Do you know if they have it in stock at the downtown location or is it online only?</p>
+</div>
+</div>
+<!-- Date Separator -->
+<div class="flex items-center gap-sm my-base">
+<div class="flex-1 h-px bg-surface-container-highest"></div>
+<span class="text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-widest">Today</span>
+<div class="flex-1 h-px bg-surface-container-highest"></div>
+</div>
+<!-- Peer Message with Image -->
+<div class="flex flex-col items-start max-w-[90%]">
+<div class="flex items-center gap-xs mb-1 ml-1">
+<span class="text-[11px] font-bold text-on-surface-variant">Alex</span>
+<span class="text-[10px] text-outline">• 11:05 AM</span>
+</div>
+<div class="bg-surface-container-high text-on-surface p-xs rounded-xl rounded-bl-xs chat-bubble-peer reddit-card flex flex-col gap-xs">
+<div class="rounded-lg overflow-hidden border border-outline/5">
+<img alt="Store Shelf" class="w-full aspect-video object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiDpXtGbBzoYwjrR0PHjH5u5QPnycPccfWeR9HYsgYhnaTTycFOwRg1_6M_itxfSCgrK61Ye08IGMwtFzNxPxzSg4Lajuj8mSGfPBV1PNeR0BRAau7t2RZ9cTsO0PrkQSZ__PI5CSQY1ynaA_ypbuFCQq4dIiJBWTJuETiXfo8dEtyOzy15arGP4_kj2NxsXohoCKzuR5jy88nRD2gjNnpquW-hbRWqJ4gQoauobfq9ez3ezrjRCh-uDlITEmARXZzFHzXY9zhK9U"/>
+</div>
+<p class="text-body-md px-sm py-1">I just checked. They have plenty at the downtown shop. Here's the photo of the shelf!</p>
+</div>
+</div>
+<!-- Typing Indicator -->
+<div class="flex items-center gap-xs ml-1 mt-xs text-on-surface-variant/60">
+<div class="flex gap-0.5">
+<div class="w-1 h-1 bg-current rounded-full animate-bounce"></div>
+<div class="w-1 h-1 bg-current rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+<div class="w-1 h-1 bg-current rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+</div>
+<span class="text-[10px] font-medium">Alex is typing...</span>
+</div>
+</div>
+</main>
+<!-- Bottom Sticky Bar Container -->
+<div class="fixed bottom-0 left-0 w-full z-50">
+<!-- Message Input Bar -->
+<div class="bg-surface-bright/95 blur-nav px-gutter py-sm border-t border-surface-container-highest">
+<div class="max-w-[640px] mx-auto flex items-center gap-sm">
+<div class="flex gap-xs">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Attach">
+<span class="material-symbols-outlined">image</span>
+</button>
+</div>
+<div class="flex-1 bg-surface-container-low border border-surface-container-highest rounded-full px-md py-2 focus-within:bg-surface-container-lowest focus-within:border-primary/50 transition-all flex items-center gap-base">
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-body-md py-0 resize-none max-h-24 scrollbar-hide" id="chat-input" placeholder="Type a message..." rows="1"></textarea>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">mood</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center rounded-full shadow-md active:scale-90 transition-all shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Tabs -->
+<nav class="bg-surface border-t border-surface-container-highest px-gutter py-xs">
+<div class="max-w-[640px] mx-auto flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">sell</span>
+<span class="text-[10px] font-bold">Deals</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-bold">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-primary" href="#">
+<div class="relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full border-2 border-surface"></span>
+</div>
+<span class="text-[10px] font-bold">Chat</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</div>
+</nav>
+</div>
+<script>
+    const textarea = document.getElementById('chat-input');
+    textarea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+
+    textarea.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            this.value = '';
+            this.style.height = 'auto';
+        }
+    });
+</script>
+</body></html>

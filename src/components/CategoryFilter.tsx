@@ -25,7 +25,7 @@ export default function CategoryFilter({
   };
 
   return (
-    <div className="lg:hidden flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+    <div className="lg:hidden flex gap-2 overflow-x-auto pb-2 hide-scrollbar">
       {categories.map((category) => (
         <button
           key={category.id}
