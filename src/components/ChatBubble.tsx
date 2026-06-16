@@ -5,6 +5,7 @@ interface ChatBubbleProps {
   avatar?: string;
   senderName?: string;
   isLoading?: boolean;
+  showName?: boolean;
 }
 
 export default function ChatBubble({
@@ -13,26 +14,23 @@ export default function ChatBubble({
   timestamp,
   senderName,
   isLoading = false,
+  showName = true,
 }: ChatBubbleProps) {
   const isUserMessage = sender === 'user';
 
   return (
     <div className={`flex flex-col max-w-[90%] ${isUserMessage ? 'items-end ml-auto' : 'items-start'}`}>
-      <div className={`flex items-center gap-xs mb-1 ${isUserMessage ? 'mr-1' : 'ml-1'}`}>
-        {!isUserMessage ? (
-          <>
+      {showName && (
+        <div className={`flex items-center gap-xs mb-1 ${isUserMessage ? 'mr-1' : 'ml-1'}`}>
+          {!isUserMessage ? (
             <span className="text-[11px] font-bold text-on-surface-variant">
               {senderName || 'Peer'}
             </span>
-            {timestamp && <span className="text-[10px] text-outline">| {timestamp}</span>}
-          </>
-        ) : (
-          <>
-            {timestamp && <span className="text-[10px] text-outline">{timestamp} |</span>}
+          ) : (
             <span className="text-[11px] font-bold text-primary">You</span>
-          </>
-        )}
-      </div>
+          )}
+        </div>
+      )}
 
       <div
         className={`px-md py-sm rounded-xl ${
@@ -48,7 +46,17 @@ export default function ChatBubble({
             <div className="w-1.5 h-1.5 bg-current rounded-full animate-bounce" style={{ animationDelay: '-0.3s' }}></div>
           </div>
         ) : (
-          <p className="text-body-md whitespace-pre-wrap">{message}</p>
+          <p className="text-body-md whitespace-pre-wrap">
+            {message}
+            {timestamp && (
+              <>
+                {' '}
+                <span className={`inline-block text-[10px] leading-none align-bottom ml-1 ${isUserMessage ? 'text-on-primary/60' : 'text-on-surface-variant'}`}>
+                  {timestamp}
+                </span>
+              </>
+            )}
+          </p>
         )}
       </div>
     </div>

@@ -27,7 +27,7 @@ export default function CategoryFilter({
           onClick={() => handleClick(category.id)}
           className={`whitespace-nowrap px-4 py-2 rounded-full font-label-bold text-label-bold transition-all ${
             activeCategory === category.id
-              ? 'bg-primary text-white shadow-sm'
+              ? 'bg-primary text-on-primary shadow-sm'
               : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container'
           }`}
         >

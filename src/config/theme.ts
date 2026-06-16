@@ -1,71 +1,67 @@
 /**
- * Coorder Design System Theme Configuration
- * Based on Community Centric Design System
+ * Coorder Design System — Theme Configuration
+ *
+ * Colors are defined as CSS variable references so that a single set of
+ * Tailwind tokens (e.g. `bg-surface-container`) automatically resolves to
+ * the correct light or dark value depending on which CSS variables are active.
+ * The actual hex values live in globals.css under :root and .dark.
  */
 
 export const colors = {
-  // Primary colors
-  primary: '#ad2c00',
-  'on-primary': '#ffffff',
-  'primary-container': '#d83900',
-  'on-primary-container': '#fffbff',
-  'inverse-primary': '#ffb5a0',
-  'primary-fixed': '#ffdbd1',
-  'primary-fixed-dim': '#ffb5a0',
-  'on-primary-fixed': '#3b0900',
-  'on-primary-fixed-variant': '#872000',
+  primary:                   'var(--color-primary)',
+  'on-primary':              'var(--color-on-primary)',
+  'primary-container':       'var(--color-primary-container)',
+  'on-primary-container':    'var(--color-on-primary-container)',
+  'inverse-primary':         'var(--color-inverse-primary)',
+  'primary-fixed':           'var(--color-primary-fixed)',
+  'primary-fixed-dim':       'var(--color-primary-fixed-dim)',
+  'on-primary-fixed':        'var(--color-on-primary-fixed)',
+  'on-primary-fixed-variant':'var(--color-on-primary-fixed-variant)',
 
-  // Secondary colors
-  secondary: '#0060a9',
-  'on-secondary': '#ffffff',
-  'secondary-container': '#4ba1fd',
-  'on-secondary-container': '#003663',
-  'secondary-fixed': '#d3e4ff',
-  'secondary-fixed-dim': '#a2c9ff',
-  'on-secondary-fixed': '#001c38',
-  'on-secondary-fixed-variant': '#004881',
+  secondary:                   'var(--color-secondary)',
+  'on-secondary':              'var(--color-on-secondary)',
+  'secondary-container':       'var(--color-secondary-container)',
+  'on-secondary-container':    'var(--color-on-secondary-container)',
+  'secondary-fixed':           'var(--color-secondary-fixed)',
+  'secondary-fixed-dim':       'var(--color-secondary-fixed-dim)',
+  'on-secondary-fixed':        'var(--color-on-secondary-fixed)',
+  'on-secondary-fixed-variant':'var(--color-on-secondary-fixed-variant)',
 
-  // Tertiary colors
-  tertiary: '#005daa',
-  'on-tertiary': '#ffffff',
-  'tertiary-container': '#0075d5',
-  'on-tertiary-container': '#fefcff',
-  'tertiary-fixed': '#d4e3ff',
-  'tertiary-fixed-dim': '#a5c8ff',
-  'on-tertiary-fixed': '#001c3a',
-  'on-tertiary-fixed-variant': '#004785',
+  tertiary:                   'var(--color-tertiary)',
+  'on-tertiary':              'var(--color-on-tertiary)',
+  'tertiary-container':       'var(--color-tertiary-container)',
+  'on-tertiary-container':    'var(--color-on-tertiary-container)',
+  'tertiary-fixed':           'var(--color-tertiary-fixed)',
+  'tertiary-fixed-dim':       'var(--color-tertiary-fixed-dim)',
+  'on-tertiary-fixed':        'var(--color-on-tertiary-fixed)',
+  'on-tertiary-fixed-variant':'var(--color-on-tertiary-fixed-variant)',
 
-  // Error colors
-  error: '#ba1a1a',
-  'on-error': '#ffffff',
-  'error-container': '#ffdad6',
-  'on-error-container': '#93000a',
+  error:                'var(--color-error)',
+  'on-error':           'var(--color-on-error)',
+  'error-container':    'var(--color-error-container)',
+  'on-error-container': 'var(--color-on-error-container)',
 
-  // Surface colors
-  surface: '#f8f9fa',
-  'on-surface': '#191c1d',
-  'surface-variant': '#e1e3e4',
-  'on-surface-variant': '#5d4038',
-  'surface-dim': '#d9dadb',
-  'surface-bright': '#f8f9fa',
-  'surface-container-lowest': '#ffffff',
-  'surface-container-low': '#f3f4f5',
-  'surface-container': '#edeeef',
-  'surface-container-high': '#e7e8e9',
-  'surface-container-highest': '#e1e3e4',
-  'surface-tint': '#b12d00',
+  surface:                    'var(--color-surface)',
+  'on-surface':               'var(--color-on-surface)',
+  'surface-variant':          'var(--color-surface-variant)',
+  'on-surface-variant':       'var(--color-on-surface-variant)',
+  'surface-dim':              'var(--color-surface-dim)',
+  'surface-bright':           'var(--color-surface-bright)',
+  'surface-container-lowest': 'var(--color-surface-container-lowest)',
+  'surface-container-low':    'var(--color-surface-container-low)',
+  'surface-container':        'var(--color-surface-container)',
+  'surface-container-high':   'var(--color-surface-container-high)',
+  'surface-container-highest':'var(--color-surface-container-highest)',
+  'surface-tint':             'var(--color-surface-tint)',
 
-  // Inverse colors
-  'inverse-surface': '#2e3132',
-  'inverse-on-surface': '#f0f1f2',
+  'inverse-surface':    'var(--color-inverse-surface)',
+  'inverse-on-surface': 'var(--color-inverse-on-surface)',
 
-  // Outline colors
-  outline: '#926f66',
-  'outline-variant': '#e7bdb2',
+  outline:          'var(--color-outline)',
+  'outline-variant':'var(--color-outline-variant)',
 
-  // Background
-  background: '#f8f9fa',
-  'on-background': '#191c1d',
+  background:    'var(--color-background)',
+  'on-background':'var(--color-on-background)',
 };
 
 export const spacing = {
@@ -74,30 +70,30 @@ export const spacing = {
   md: '16px',
   lg: '24px',
   xl: '32px',
-  'gutter': '16px',
+  gutter: '16px',
   'margin-mobile': '12px',
   'margin-desktop': '24px',
   'max-width-content': '640px',
-  'unit': '4px',
+  unit: '4px',
 };
 
 export const fontSize = {
-  'headline-lg': ['22px', { lineHeight: '28px', letterSpacing: '-0.02em', fontWeight: '600' }],
-  'headline-md': ['18px', { lineHeight: '24px', letterSpacing: '-0.01em', fontWeight: '500' }],
-  'headline-lg-mobile': ['20px', { lineHeight: '26px', fontWeight: '600' }],
-  'body-lg': ['14px', { lineHeight: '21px', fontWeight: '400' }],
-  'body-md': ['12px', { lineHeight: '18px', fontWeight: '400' }],
-  'label-bold': ['12px', { lineHeight: '16px', fontWeight: '700' }],
-  'label-sm': ['10px', { lineHeight: '14px', fontWeight: '500' }],
+  'headline-lg':       ['22px', { lineHeight: '28px', letterSpacing: '-0.02em', fontWeight: '600' }],
+  'headline-md':       ['18px', { lineHeight: '24px', letterSpacing: '-0.01em', fontWeight: '500' }],
+  'headline-lg-mobile':['20px', { lineHeight: '26px', fontWeight: '600' }],
+  'body-lg':           ['14px', { lineHeight: '21px', fontWeight: '400' }],
+  'body-md':           ['12px', { lineHeight: '18px', fontWeight: '400' }],
+  'label-bold':        ['12px', { lineHeight: '16px', fontWeight: '700' }],
+  'label-sm':          ['10px', { lineHeight: '14px', fontWeight: '500' }],
 };
 
 export const borderRadius = {
-  sm: '0.25rem',
+  sm:      '0.25rem',
   DEFAULT: '0.5rem',
-  md: '0.75rem',
-  lg: '1rem',
-  xl: '1.5rem',
-  full: '9999px',
+  md:      '0.75rem',
+  lg:      '1rem',
+  xl:      '1.5rem',
+  full:    '9999px',
 };
 
 export const fontFamily = {

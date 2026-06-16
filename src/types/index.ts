@@ -79,3 +79,14 @@ export interface RecentPurchase {
   statusColor: string;
   bgStatusColor: string;
 }
+
+export interface Conversation {
+  id: number;
+  name: string;
+  avatarUrl?: string;
+  initials?: string;
+  lastMessage: string;
+  time: string;
+  unread: number;
+  online?: boolean;
+}

@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 interface HeaderProps {
   onSearchClick?: () => void;
@@ -7,60 +8,72 @@ interface HeaderProps {
 
 export default function Header({ onSearchClick, showUserProfile = true }: HeaderProps) {
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="w-full top-0 sticky z-[100] shadow-sm dark:shadow-none bg-surface dark:bg-surface-dim flex justify-between items-center px-gutter py-md">
-      <Link to="/" className="flex items-center gap-4">
-        <span className="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed font-black tracking-tight">
-          Coorder
-        </span>
+    <header className="w-full top-0 sticky z-[100] bg-surface border-b border-surface-container-highest shadow-sm flex justify-between items-center px-gutter py-md transition-colors duration-300">
+      <Link to="/" className="flex items-center gap-2">
+        <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>hub</span>
+        <span className="font-headline-lg-mobile text-headline-lg-mobile text-primary font-black tracking-tight">Coorder</span>
       </Link>
 
-      {/* Desktop Nav Center */}
-      <div className="hidden md:flex items-center gap-6">
-        <Link
-          to="/"
-          className={`flex items-center gap-1 font-label-bold text-label-bold transition-opacity ${
-            isActive('/') ? 'text-primary' : 'text-on-surface-variant hover:opacity-80'
-          }`}
-        >
-          <span className="material-symbols-outlined text-[20px]">local_fire_department</span>
-          Deals
-        </Link>
-        <Link
-          to="/map"
-          className={`flex items-center gap-1 font-label-bold text-label-bold transition-opacity ${
-            isActive('/map') ? 'text-primary' : 'text-on-surface-variant hover:opacity-80'
-          }`}
-        >
-          <span className="material-symbols-outlined text-[20px]">map</span>
-          Map
-        </Link>
-        <Link
-          to="/chat"
-          className={`flex items-center gap-1 font-label-bold text-label-bold transition-opacity ${
-            isActive('/chat') ? 'text-primary' : 'text-on-surface-variant hover:opacity-80'
-          }`}
-        >
-          <span className="material-symbols-outlined text-[20px]">forum</span>
-          Chat
-        </Link>
-      </div>
+      {/* Desktop nav */}
+      <nav className="hidden md:flex items-center gap-6">
+        {[
+          { to: '/',     icon: 'local_fire_department', label: 'Deals' },
+          { to: '/map',  icon: 'map',                   label: 'Map'   },
+          { to: '/chat', icon: 'forum',                 label: 'Chat'  },
+        ].map(({ to, icon, label }) => (
+          <Link
+            key={to}
+            to={to}
+            className={`flex items-center gap-1 font-label-bold text-label-bold transition-opacity ${
+              isActive(to) ? 'text-primary' : 'text-on-surface-variant hover:opacity-80'
+            }`}
+          >
+            <span className="material-symbols-outlined text-[20px]">{icon}</span>
+            {label}
+          </Link>
+        ))}
+      </nav>
 
-      {/* Right Actions */}
+      {/* Right actions */}
       <div className="flex items-center gap-3">
         <button
           onClick={onSearchClick}
-          className="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 duration-150"
+          className="material-symbols-outlined text-primary hover:opacity-80 transition-opacity active:scale-95"
+          aria-label="Search"
         >
           search
         </button>
+
+        {/* Dark mode toggle — animated sun/moon swap */}
+        <button
+          onClick={toggleTheme}
+          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          className="relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors duration-200"
+        >
+          <span
+            className={`material-symbols-outlined text-[22px] absolute transition-all duration-300 text-primary
+              ${theme === 'dark' ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`}
+            style={{ fontVariationSettings: "'FILL' 1" }}
+          >
+            light_mode
+          </span>
+          <span
+            className={`material-symbols-outlined text-[22px] absolute transition-all duration-300 text-on-surface-variant
+              ${theme === 'light' ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-50'}`}
+          >
+            dark_mode
+          </span>
+        </button>
+
         {showUserProfile && (
           <Link
             to="/profile"
-            className="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden hover:opacity-80 transition-opacity"
+            className="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden hover:opacity-80 transition-opacity ring-2 ring-transparent hover:ring-primary/30"
           >
             <img
               alt="User"

@@ -4,7 +4,132 @@
 
 @config "../../tailwind.config.ts";
 
-/* Base styles */
+/* ─────────────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS — Light mode (default)
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  --color-primary:                    #c44e00;
+  --color-on-primary:                 #ffffff;
+  --color-primary-container:          #ff8c42;
+  --color-on-primary-container:       #2a1400;
+  --color-inverse-primary:            #ffb5a0;
+  --color-primary-fixed:              #ffdbd1;
+  --color-primary-fixed-dim:          #ffb077;
+  --color-on-primary-fixed:           #2a1400;
+  --color-on-primary-fixed-variant:   #b84700;
+  --color-surface-tint:               #c44e00;
+
+  --color-secondary:                    #0060a9;
+  --color-on-secondary:                 #ffffff;
+  --color-secondary-container:          #d3e4ff;
+  --color-on-secondary-container:       #001c38;
+  --color-secondary-fixed:              #d3e4ff;
+  --color-secondary-fixed-dim:          #a2c9ff;
+  --color-on-secondary-fixed:           #001c38;
+  --color-on-secondary-fixed-variant:   #004881;
+
+  --color-tertiary:                    #005daa;
+  --color-on-tertiary:                 #ffffff;
+  --color-tertiary-container:          #d4e3ff;
+  --color-on-tertiary-container:       #001c3a;
+  --color-tertiary-fixed:              #d4e3ff;
+  --color-tertiary-fixed-dim:          #a5c8ff;
+  --color-on-tertiary-fixed:           #001c3a;
+  --color-on-tertiary-fixed-variant:   #004785;
+
+  --color-error:                #ba1a1a;
+  --color-on-error:             #ffffff;
+  --color-error-container:      #ffdad6;
+  --color-on-error-container:   #93000a;
+
+  --color-background:    #f8f9fa;
+  --color-on-background: #191c1d;
+
+  --color-surface:                    #f8f9fa;
+  --color-on-surface:                 #191c1d;
+  --color-surface-variant:            #e1e3e4;
+  --color-on-surface-variant:         #5d4038;
+  --color-surface-dim:                #d9dadb;
+  --color-surface-bright:             #f8f9fa;
+  --color-surface-container-lowest:   #ffffff;
+  --color-surface-container-low:      #f3f4f5;
+  --color-surface-container:          #edeeef;
+  --color-surface-container-high:     #e7e8e9;
+  --color-surface-container-highest:  #e1e3e4;
+  --color-surface-tint:               #b12d00;
+
+  --color-inverse-surface:    #2e3132;
+  --color-inverse-on-surface: #f0f1f2;
+
+  --color-outline:          #926f66;
+  --color-outline-variant:  #d8c2bc;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS — Dark mode
+   Applied when the <html> element has the .dark class (class-based darkMode)
+   ───────────────────────────────────────────────────────────────────────────── */
+.dark {
+  --color-primary:                    #c44e00;
+  --color-on-primary:                 #ffffff;
+  --color-primary-container:          #9a3d00;
+  --color-on-primary-container:       #ffdbd1;
+  --color-inverse-primary:            #ffb077;
+  --color-primary-fixed:              #ffdbd1;
+  --color-primary-fixed-dim:          #ffb077;
+  --color-on-primary-fixed:           #2a1400;
+  --color-on-primary-fixed-variant:   #9a3d00;
+  --color-surface-tint:               #c44e00;
+
+  --color-secondary:                    #a2c9ff;
+  --color-on-secondary:                 #003060;
+  --color-secondary-container:          #004881;
+  --color-on-secondary-container:       #d3e4ff;
+  --color-secondary-fixed:              #d3e4ff;
+  --color-secondary-fixed-dim:          #a2c9ff;
+  --color-on-secondary-fixed:           #001c38;
+  --color-on-secondary-fixed-variant:   #004881;
+
+  --color-tertiary:                    #a5c8ff;
+  --color-on-tertiary:                 #003063;
+  --color-tertiary-container:          #004785;
+  --color-on-tertiary-container:       #d4e3ff;
+  --color-tertiary-fixed:              #d4e3ff;
+  --color-tertiary-fixed-dim:          #a5c8ff;
+  --color-on-tertiary-fixed:           #001c3a;
+  --color-on-tertiary-fixed-variant:   #004785;
+
+  --color-error:                #ffb4ab;
+  --color-on-error:             #690005;
+  --color-error-container:      #93000a;
+  --color-on-error-container:   #ffdad6;
+
+  --color-background:    #111416;
+  --color-on-background: #e2e2e5;
+
+  --color-surface:                    #191c1e;
+  --color-on-surface:                 #e2e2e5;
+  --color-surface-variant:            #3f4447;
+  --color-on-surface-variant:         #c3c7cb;
+  --color-surface-dim:                #111416;
+  --color-surface-bright:             #37393c;
+  --color-surface-container-lowest:   #0c0f11;
+  --color-surface-container-low:      #191c1e;
+  --color-surface-container:          #1d2023;
+  --color-surface-container-high:     #282b2e;
+  --color-surface-container-highest:  #323639;
+  --color-surface-tint:               #ffb5a0;
+
+  --color-inverse-surface:    #e2e2e5;
+  --color-inverse-on-surface: #2f3133;
+
+  --color-outline:          #8d9195;
+  --color-outline-variant:  #3f4447;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE
+   ───────────────────────────────────────────────────────────────────────────── */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,34 +137,24 @@
 
 body {
   font-family: 'IBM Plex Sans', sans-serif;
-  background-color: var(--color-background, #f8f9fa);
-  color: var(--color-on-background, #191c1d);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
+/* ─────────────────────────────────────────────────────────────────────────────
+   SCROLLBAR
+   ───────────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-surface-container-highest); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-surface-container-high); }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #e1e3e4;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #d9dadb;
-}
-
-/* Material Symbols font */
+/* ─────────────────────────────────────────────────────────────────────────────
+   MATERIAL SYMBOLS
+   ───────────────────────────────────────────────────────────────────────────── */
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
   font-weight: normal;
@@ -54,11 +169,16 @@ html {
   direction: ltr;
 }
 
-/* Glass effect for headers */
+/* ─────────────────────────────────────────────────────────────────────────────
+   GLASS / CARD UTILITIES
+   ───────────────────────────────────────────────────────────────────────────── */
 .glass-header {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+.dark .glass-header {
+  background: rgba(25, 28, 30, 0.9);
 }
 
 .blur-nav {
@@ -66,81 +186,59 @@ html {
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Chat bubble shapes */
-.chat-bubble-peer {
-  border-bottom-left-radius: 4px;
-}
-
-.chat-bubble-user {
-  border-bottom-right-radius: 4px;
-}
-
-/* Shimmer animation */
-.shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255, 69, 0, 0.05), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite linear;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Utility classes */
-.truncate-lines-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.truncate-lines-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.transition-smooth {
-  transition: all 150ms ease-in-out;
-}
-
-/* UI Layout Utilities */
-.reddit-card {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
 .glass-card {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #edeff1;
+  border: 1px solid var(--color-outline-variant);
+}
+.dark .glass-card {
+  background: rgba(29, 32, 35, 0.9);
 }
 
-.marker-pulse {
-  animation: pulse 2s infinite;
+.reddit-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.dark .reddit-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   CHAT BUBBLES
+   ───────────────────────────────────────────────────────────────────────────── */
+.chat-bubble-peer { border-bottom-left-radius:  4px; }
+.chat-bubble-user { border-bottom-right-radius: 4px; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ANIMATIONS
+   ───────────────────────────────────────────────────────────────────────────── */
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 69, 0, 0.06), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes like-burst {
+  0%   { transform: rotate(var(--tw-rotate, 0deg)) translateY(-14px) scale(1);   opacity: 1; }
+  100% { transform: rotate(var(--tw-rotate, 0deg)) translateY(-22px) scale(0); opacity: 0; }
+}
+.animate-like-burst { animation: like-burst 0.5s ease-out forwards; }
+
+.marker-pulse { animation: pulse 2s infinite; }
 @keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%       { transform: scale(1.1); opacity: 0.8; }
 }
 
-.bottom-sheet-transition {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hide-scrollbar::-webkit-scrollbar { 
-  display: none; 
-}
-.hide-scrollbar { 
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
-}
-
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTILITIES
+   ───────────────────────────────────────────────────────────────────────────── */
+.bottom-sheet-transition { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.truncate-lines-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.truncate-lines-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
