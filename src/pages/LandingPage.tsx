@@ -9,7 +9,7 @@ const CENTER_AVATAR = imageUrls.userAvatar;
 export default function LandingPage() {
   return (
     <div
-      className="min-h-screen text-[#1c1c1c] font-sans antialiased overflow-x-hidden"
+      className="flex flex-col items-center justify-start min-h-screen text-[#1c1c1c] font-sans antialiased overflow-x-hidden"
       style={{ background: 'linear-gradient(to bottom right, #fff7ed, #ffffff, #f3f4f6)' }}
     >
       {/* Grid overlay */}
@@ -68,8 +68,8 @@ export default function LandingPage() {
       </header>
 
       {/* ── Hero + CTAs ── */}
-      <main className="relative z-10 flex flex-col items-center text-center px-4 pt-10 pb-16 max-w-md mx-auto">
-        <div className="space-y-6 mt-8 mb-8">
+      <main className="relative z-10 px-4 pt-10 pb-32 flex flex-col items-center text-center max-w-2xl mx-auto">
+        <div className="relative z-10 mt-8 mb-8 space-y-6">
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-gray-900 leading-[1.1]">
             Multiply Your<br />Buying Power
           </h1>
@@ -79,119 +79,22 @@ export default function LandingPage() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 w-full px-4 mb-6">
+        <div className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center mb-20">
           <Link
             to={routes.register}
-            className="flex-1 bg-[#ff4500] text-white font-medium py-3.5 px-6 rounded-full shadow-lg active:scale-95 transition-transform text-center hover:bg-[#e53e00]"
+            className="bg-[#ff4500] text-white font-medium py-3 px-8 rounded-full shadow-lg active:scale-95 transition-transform text-center hover:bg-[#e53e00] whitespace-nowrap"
           >
             Join a Group
           </Link>
           <Link
             to={routes.home}
-            className="flex-1 bg-white text-gray-800 font-medium py-3.5 px-6 rounded-full shadow-md border border-gray-100 active:scale-95 transition-transform text-center hover:bg-gray-50"
+            className="bg-white text-gray-800 font-medium py-3 px-8 rounded-full shadow-md border border-gray-100 active:scale-95 transition-transform text-center hover:bg-gray-50 whitespace-nowrap"
           >
             Browse Deals
           </Link>
         </div>
       </main>
 
-      {/* ── Card stack — full width, outside max-w-md ── */}
-      <div className="relative z-10 w-full flex justify-center pb-20" style={{ height: '420px' }}>
-
-        {/* Glow blob */}
-        <div
-          aria-hidden
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-60"
-          style={{ background: 'radial-gradient(circle, rgba(251,191,36,0.3) 0%, transparent 70%)' }}
-        />
-
-        {/* Left card */}
-        <div
-          aria-hidden
-          className="absolute bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-white/50 p-6 flex flex-col items-center text-center"
-          style={{
-            width: '280px',
-            height: '288px',
-            top: '64px',
-            left: 'calc(50% - 310px)',
-            transform: 'rotate(-6deg)',
-            opacity: 0.9,
-            zIndex: 10,
-          }}
-        >
-          <div className="w-10 h-10 rounded-full bg-gray-200 mb-4 overflow-hidden border-2 border-white shadow-sm shrink-0">
-            <img alt="" className="w-full h-full object-cover" src={LEFT_AVATAR} />
-          </div>
-          <h3 className="text-base font-medium text-gray-900 leading-snug">
-            Why do I feel exhausted even after a full night's sleep?
-          </h3>
-          <div className="mt-auto flex items-center gap-3 text-[10px] text-gray-500">
-            <span>16 answers</span>
-            <span className="w-1 h-1 bg-gray-300 rounded-full" />
-            <span>400 views</span>
-          </div>
-        </div>
-
-        {/* Right card */}
-        <div
-          aria-hidden
-          className="absolute bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-white/50 p-6 flex flex-col items-center text-center"
-          style={{
-            width: '280px',
-            height: '288px',
-            top: '64px',
-            left: 'calc(50% + 30px)',
-            transform: 'rotate(6deg)',
-            opacity: 0.9,
-            zIndex: 10,
-          }}
-        >
-          <div className="w-10 h-10 rounded-full bg-gray-200 mb-4 overflow-hidden border-2 border-white shadow-sm shrink-0">
-            <img alt="" className="w-full h-full object-cover" src={RIGHT_AVATAR} />
-          </div>
-          <h3 className="text-base font-medium text-gray-900 leading-snug">
-            Is it normal to lose motivation for everything at once?
-          </h3>
-          <div className="mt-auto flex items-center gap-3 text-[10px] text-gray-500">
-            <span>24 answers</span>
-            <span className="w-1 h-1 bg-gray-300 rounded-full" />
-            <span>1.2k views</span>
-          </div>
-        </div>
-
-        {/* Center card — front, reduced height */}
-        <div
-          className="absolute bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl border border-white p-8 flex flex-col items-center justify-center text-center"
-          style={{
-            width: '300px',
-            height: '320px',
-            top: 0,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 30,
-          }}
-        >
-          <div className="w-12 h-12 rounded-full bg-[#f8f9fa] mb-6 overflow-hidden border-[3px] border-white shadow-md flex items-center justify-center shrink-0">
-            <img alt="User" className="w-full h-full object-cover" src={CENTER_AVATAR} />
-          </div>
-          <h3 className="text-lg font-medium text-gray-900 leading-snug mb-6">
-            How do you stop overthinking small social interactions?
-          </h3>
-          <div className="flex items-center gap-4 text-[11px] text-gray-500">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 bg-[#ff4500] rounded-full animate-pulse" />
-              Active Now
-            </span>
-            <span className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
-              </svg>
-              24 Joined
-            </span>
-          </div>
-        </div>
-
-      </div>
     </div>
   );
 }
