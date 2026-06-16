@@ -70,10 +70,10 @@ export default function LandingPage() {
       {/* ── Hero + CTAs ── */}
       <main className="relative z-10 flex flex-col items-center text-center px-4 pt-10 pb-16 max-w-2xl mx-auto">
         <div className="space-y-6 mt-8 mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 leading-snug">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 leading-snug max-w-sm">
             Multiply Your Buying Power
           </h1>
-          <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+          <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-sm">
             Join forces with your neighbors to unlock bulk pricing on premium goods.
             Secure, community-driven, and social.
           </p>
