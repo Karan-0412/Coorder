@@ -9,7 +9,7 @@ const CENTER_AVATAR = imageUrls.userAvatar;
 export default function LandingPage() {
   return (
     <div
-      className="min-h-screen text-[#1c1c1c] font-sans antialiased overflow-x-hidden"
+      className="flex flex-col items-center justify-start min-h-screen text-[#1c1c1c] font-sans antialiased overflow-x-hidden"
       style={{ background: 'linear-gradient(to bottom right, #fff7ed, #ffffff, #f3f4f6)' }}
     >
       {/* Grid overlay */}
@@ -70,7 +70,7 @@ export default function LandingPage() {
       {/* ── Hero + CTAs ── */}
       <main className="relative z-10 px-4 pt-10 pb-32 flex flex-col items-center text-center max-w-md mx-auto">
         <div className="relative z-10 mt-8 mb-8 space-y-6">
-          <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-gray-900 leading-[1.1]">
+          <h1 className="flex flex-col items-start justify-start w-full text-4xl sm:text-5xl font-medium tracking-tight text-gray-900 leading-[1.1]">
             Multiply Your<br />Buying Power
           </h1>
           <p className="text-base text-gray-500 max-w-[280px] mx-auto leading-relaxed">
