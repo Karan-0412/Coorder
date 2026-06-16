@@ -68,7 +68,7 @@ export default function LandingPage() {
       </header>
 
       {/* ── Hero + CTAs ── */}
-      <main className="relative z-10 flex flex-col items-center text-center px-4 pt-10 pb-16 max-w-md mx-auto">
+      <main className="relative z-10 flex flex-col items-center text-center px-4 pt-10 pb-16 max-w-2xl mx-auto">
         <div className="space-y-6 mt-8 mb-12">
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 leading-tight max-w-lg">
             Multiply Your Buying Power
