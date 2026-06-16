@@ -68,9 +68,9 @@ export default function LandingPage() {
       </header>
 
       {/* ── Hero + CTAs ── */}
-      <main className="relative z-10 px-4 pt-10 pb-32 flex flex-col items-center text-center max-w-md mx-auto">
+      <main className="relative z-10 px-4 pt-10 pb-32 flex flex-col items-center text-center max-w-2xl mx-auto">
         <div className="relative z-10 mt-8 mb-8 space-y-6">
-          <h1 className="flex flex-col items-start justify-start w-full text-4xl sm:text-5xl font-medium tracking-tight text-gray-900 leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-gray-900 leading-[1.1]">
             Multiply Your<br />Buying Power
           </h1>
           <p className="text-base text-gray-500 max-w-[280px] mx-auto leading-relaxed">
@@ -79,16 +79,16 @@ export default function LandingPage() {
           </p>
         </div>
 
-        <div className="relative z-10 flex flex-col sm:flex-row gap-3 w-full px-4 mb-20">
+        <div className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center mb-20">
           <Link
             to={routes.register}
-            className="flex-1 bg-[#ff4500] text-white font-medium py-3.5 px-6 rounded-full shadow-lg active:scale-95 transition-transform text-center hover:bg-[#e53e00]"
+            className="bg-[#ff4500] text-white font-medium py-3 px-8 rounded-full shadow-lg active:scale-95 transition-transform text-center hover:bg-[#e53e00] whitespace-nowrap"
           >
             Join a Group
           </Link>
           <Link
             to={routes.home}
-            className="flex-1 bg-white text-gray-800 font-medium py-3.5 px-6 rounded-full shadow-md border border-gray-100 active:scale-95 transition-transform text-center hover:bg-gray-50"
+            className="bg-white text-gray-800 font-medium py-3 px-8 rounded-full shadow-md border border-gray-100 active:scale-95 transition-transform text-center hover:bg-gray-50 whitespace-nowrap"
           >
             Browse Deals
           </Link>
